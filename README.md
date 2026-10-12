@@ -123,17 +123,12 @@ PUBLIC_SITE_URL=https://your-new-domain.com
 
 ## Docker & CI/CD Deployment
 
-This repository includes a multi-stage `Dockerfile.web` (powered by `oven/bun:1-alpine`), `docker-compose.yml`, `docker-compose.prod.yml` (with Watchtower auto-updates), and a GitHub Actions workflow (`.github/workflows/docker.yml`) that automatically builds and publishes `ghcr.io/deus-meus/skylander-web:latest` on every push to `main`.
-
-### Local Docker Build & Run
-```bash
-docker compose up --build -d
-```
+This repository includes a multi-stage `Dockerfile.web` (powered by `oven/bun:1-alpine`), `docker-compose.yml` (with Watchtower auto-updates), and a GitHub Actions workflow (`.github/workflows/docker.yml`) that automatically builds and publishes `ghcr.io/deus-meus/skylander-web:latest` on every push to `main`.
 
 ### Production Deployment (GHCR + Watchtower)
 ```bash
 cp .env.example .env
-docker compose -f docker-compose.prod.yml up -d
+docker compose up -d
 ```
 
 ---
