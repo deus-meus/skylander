@@ -1,0 +1,178 @@
+---
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar.astro";
+import { branches } from "@/data/branches";
+import { company } from "@/data/company";
+import { services } from "@/data/services";
+
+interface Props {
+	title?: string;
+	description?: string;
+	canonicalPath?: string;
+	ogImage?: string;
+	keywords?: string;
+	extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+	title = "CV. Skylander — Jasa Konstruksi & Renovasi Bangunan Profesional (Makassar, Papua, Toraja)",
+	description = "CV. Skylander berdiri sejak 2011 melayani jasa konstruksi bangunan hunian, gedung perkantoran, bangunan sipil, prasarana sumber daya air, jasa renovasi, dan landscape di Makassar, Jayapura Papua, dan Tana Toraja.",
+	canonicalPath = "/",
+	ogImage = "/images/original/Home-1.webp",
+	keywords = "jasa konstruksi makassar, kontraktor jayapura papua, jasa renovasi rumah, konstruksi bangunan sipil, kontraktor gedung perkantoran, konstruksi bangunan hunian, cv skylander, kontraktor tana toraja",
+	extraJsonLd,
+} = Astro.props;
+
+const siteUrl = (Astro.site ?? Astro.url).origin;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+
+const contractorSchema = {
+	"@context": "https://schema.org",
+	"@type": "GeneralContractor",
+	"@id": `${siteUrl}/#organization`,
+	name: company.name,
+	legalName: company.legalName,
+	url: siteUrl,
+	logo: `${siteUrl}/images/original/skylander.co_.id_.webp`,
+	image: ogImageUrl,
+	telephone: company.phone,
+	email: company.email,
+	foundingDate: "2011",
+	description,
+	priceRange: "$$$",
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: "Jl. Goa Ria, Sudiang, Kec. Biringkanaya",
+		addressLocality: "Makassar",
+		addressRegion: "Sulawesi Selatan",
+		postalCode: "90552",
+		addressCountry: "ID",
+	},
+	geo: {
+		"@type": "GeoCoordinates",
+		latitude: -5.0741,
+		longitude: 119.5312,
+	},
+	openingHoursSpecification: [
+		{
+			"@type": "OpeningHoursSpecification",
+			dayOfWeek: [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday",
+			],
+			opens: "07:00",
+			closes: "16:00",
+		},
+	],
+	areaServed: [
+		"Makassar",
+		"Jayapura",
+		"Papua",
+		"Tana Toraja",
+		"Sulawesi Selatan",
+		"Indonesia",
+	],
+	hasOfferCatalog: {
+		"@type": "OfferCatalog",
+		name: "Layanan Jasa Konstruksi & Renovasi CV. Skylander",
+		itemListElement: services.map((s) => ({
+			"@type": "Offer",
+			itemOffered: {
+				"@type": "Service",
+				name: s.title,
+				description: s.description,
+				url: `${siteUrl}/service/${s.slug}`,
+			},
+		})),
+	},
+	department: branches.map((b) => ({
+		"@type": "GeneralContractor",
+		name: b.name,
+		telephone: company.phone,
+		address: {
+			"@type": "PostalAddress",
+			streetAddress: b.address,
+			addressLocality: b.city,
+			addressRegion: b.province,
+			postalCode: b.postalCode,
+			addressCountry: "ID",
+		},
+	})),
+};
+
+const schemas = extraJsonLd
+	? Array.isArray(extraJsonLd)
+		? [contractorSchema, ...extraJsonLd]
+		: [contractorSchema, extraJsonLd]
+	: [contractorSchema];
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content={company.name} />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+		<!-- Geo Meta Tags for Local SEO (Makassar, Papua, Toraja) -->
+		<meta name="geo.region" content="ID-SN" />
+		<meta name="geo.placename" content="Makassar, Sulawesi Selatan" />
+		<meta name="geo.position" content="-5.0741;119.5312" />
+		<meta name="ICBM" content="-5.0741, 119.5312" />
+
+		<!-- Favicon: Official CV. Skylander Logo -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+		<link rel="icon" type="image/webp" href="/images/original/cropped-Favicon-CV-SKYLANDER.webp" />
+		<link rel="apple-touch-icon" href="/favicon.png" />
+
+		<!-- OpenGraph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:site_name" content={company.name} />
+		<meta property="og:locale" content="id_ID" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<!-- Google Fonts: Plus Jakarta Sans + Inter + JetBrains Mono + Material Symbols Outlined -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- JSON-LD Structured Data (Sanitized against script tag breakout) -->
+		{schemas.map((schema) => (
+			<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
+		))}
+	</head>
+	<body class="bg-stone-50 font-body text-stone-700 antialiased min-h-screen flex flex-col selection:bg-amber-500/20 selection:text-amber-700">
+		<Navbar transparentOnTop={canonicalPath === "/"} />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

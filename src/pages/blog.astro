@@ -1,0 +1,536 @@
+---
+import { createWhatsAppUrl } from "@/data/company";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const topics = [
+	{ id: "all", label: "SEMUA ARTIKEL", active: true },
+	{ id: "sipil", label: "REKAYASA SIPIL & BANGUNAN", active: false },
+	{ id: "renovasi", label: "RENOVASI & HUNIAN MEWAH", active: false },
+	{ id: "geoteknik", label: "GEOTEKNIK & TANAH LERENG", active: false },
+	{ id: "legalitas", label: "LEGALITAS & PBG/SLF", active: false },
+];
+
+const gridArticles = [
+	{
+		badge: "HUNIAN & RESIDENSIAL",
+		topicIds: "all,renovasi",
+		date: "22 Mei 2023",
+		readTime: "4 Menit Baca",
+		title: "Temukan Layanan Konstruksi Terbaik untuk Renovasi Rumah Anda di Sini!",
+		excerpt:
+			"Pertimbangan esensial sebelum memulai renovasi menyeluruh, mulai dari audit kelayakan struktural pondasi hingga pemilihan material tahan cuaca tropis basah.",
+		footerTag: "Studi Kasus 04",
+		image: "/images/stitch/stitch_04_aeb248ed94.webp",
+		href: "/service/jasa-renovasi",
+	},
+	{
+		badge: "MANAJEMEN PROYEK",
+		topicIds: "all,legalitas,sipil",
+		date: "20 Mei 2023",
+		readTime: "6 Menit Baca",
+		title: "Cari Tahu Tahapan untuk Mendapatkan Layanan Konstruksi Terbaik",
+		excerpt:
+			"Memahami alur transparan kontrak EPC, perizinan PBG/SLF terverifikasi, pengawasan K3 zero-accident, hingga serah terima kunci tepat waktu.",
+		footerTag: "Protokol EPC",
+		image: "/images/stitch/stitch_03_120eda0d0c.webp",
+		href: "/faq",
+	},
+	{
+		badge: "KEBERLANJUTAN",
+		topicIds: "all,sipil,renovasi",
+		date: "15 Mei 2023",
+		readTime: "5 Menit Baca",
+		title: "Penerapan Material Rendah Emisi dan Konservasi Air pada Fasilitas Publik",
+		excerpt:
+			"Bagaimana integrasi saluran drainase bio-swale berkelanjutan dan agregat lokal mampu mengurangi jejak karbon proyek secara terukur di Indonesia Timur.",
+		footerTag: "Riset Hijau",
+		image: "/images/stitch/stitch_08_31fb316742.webp",
+		href: "/service/jasa-lanskap",
+	},
+	{
+		badge: "GEOTEKNIK & LERENG",
+		topicIds: "all,geoteknik,sipil",
+		date: "08 Mei 2023",
+		readTime: "7 Menit Baca",
+		title: "Mitigasi Longsor & Dinding Penahan Tanah pada Topografi Curam",
+		excerpt:
+			"Solusi pemancangan mikro dan soil nailing untuk melindungi integritas konstruksi bertingkat di perbukitan berkontur ekstrem Sulawesi.",
+		footerTag: "Field Study TRJ",
+		image: "/images/stitch/stitch_10_d983c13249.webp",
+		href: "/service/konstruksi-bangunan-sipil",
+	},
+];
+
+const categories = [
+	{ id: "sipil", name: "Rekayasa Sipil & Bangunan", count: "04" },
+	{ id: "renovasi", name: "Renovasi & Hunian Mewah", count: "02" },
+	{ id: "geoteknik", name: "Geoteknik & Tanah Lereng", count: "02" },
+	{ id: "legalitas", name: "Legalitas, PBG & SLF", count: "01" },
+];
+
+const archives = [{ month: "Mei 2023", count: "(5)" }];
+---
+
+<BaseLayout
+	title="Blog & Wawasan Arsitektur (Publikasi Teknis) — CV. Skylander"
+	description="Wawasan, riset, dan publikasi arsitektur CV. Skylander: kajian berkala rekayasa struktur, analisis geoteknis Indonesia Timur, dan pedoman renovasi bangunan."
+	canonicalPath="/blog"
+>
+	<!-- 1. EDITORIAL HEADER & INTERACTIVE TOPIC FILTER PILLS -->
+	<section class="py-14 lg:py-16 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-8">
+			<!-- Breadcrumb -->
+			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
+				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+				<span>/</span>
+				<span class="text-amber-600 font-bold">Blog &amp; Wawasan</span>
+			</div>
+
+			<!-- Title Row + Archive Counter Box -->
+			<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+				<div class="space-y-3 max-w-3xl">
+					<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600 font-bold">
+						<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+						<span>Publikasi &amp; Artikel Teknis</span>
+					</div>
+					<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[48px] text-stone-900 tracking-tight leading-[1.1]">
+						Wawasan, Riset &amp; Publikasi Arsitektur
+					</h1>
+					<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl">
+						Kajian berkala rekayasa struktur, analisis geoteknis Indonesia Timur, pedoman renovasi hunian tropis, serta laporan implementasi proyek konstruksi sipil.
+					</p>
+				</div>
+
+				<!-- Archive Counter Box -->
+				<div class="bg-white border border-stone-200 rounded-lg px-6 py-4 flex items-center gap-8 shrink-0 shadow-sm">
+					<div>
+						<span class="font-mono text-[10px] uppercase tracking-widest text-stone-400 block">Arsip Aktif</span>
+						<span class="font-mono text-sm font-bold text-stone-900 mt-0.5 block">2023 – 2025</span>
+					</div>
+					<div class="h-8 w-px bg-stone-200"></div>
+					<div>
+						<span class="font-mono text-[10px] uppercase tracking-widest text-stone-400 block">Jurnal Terindeks</span>
+						<span id="visible-count-badge" class="font-mono text-sm font-bold text-amber-600 mt-0.5 block">5 Terbitan</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Interactive Filter Topic Pills -->
+			<div class="pt-4 border-t border-stone-200/80 flex flex-wrap items-center gap-2.5">
+				<span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 mr-2">Topik Kajian:</span>
+				{topics.map((t) => (
+					<button
+						type="button"
+						data-topic-btn={t.id}
+						class={`topic-filter-btn px-3.5 py-1.5 rounded text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer ${
+							t.active
+								? "bg-stone-950 text-white shadow-sm"
+								: "bg-white text-stone-600 border border-stone-200 hover:border-amber-500 hover:text-stone-900"
+						}`}
+					>
+						{t.label}
+					</button>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. MAIN BLOG CONTENT (8 Cols) & SIDEBAR (4 Cols) -->
+	<section class="py-16 lg:py-20 bg-stone-50/50">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+				<!-- LEFT MAIN COLUMN (8 Cols) -->
+				<div class="lg:col-span-8 space-y-10">
+					<!-- Featured Article Card -->
+					<article
+						data-blog-card
+						data-topics="all,sipil,geoteknik"
+						class="bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm group transition-all"
+					>
+						<div class="relative h-[300px] sm:h-[400px] overflow-hidden bg-stone-900">
+							<img
+								src="/images/stitch/stitch_10_d983c13249.webp"
+								alt="Disini Tempatnya Mempercayakan Konstruksi Bangunan Sipil di Papua ke Tangan Ahli!"
+								class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-stone-950/50 via-transparent to-transparent"></div>
+							<div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+								<span class="px-3 py-1 rounded bg-stone-950/90 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+									Unggulan Teknis
+								</span>
+								<span class="px-3 py-1 rounded bg-amber-500 text-stone-950 font-mono text-[10px] font-bold uppercase tracking-wider">
+									Wilayah Timur
+								</span>
+							</div>
+						</div>
+
+						<div class="p-8 sm:p-10 space-y-5">
+							<div class="flex flex-wrap items-center gap-3 font-mono text-[11px] text-stone-400">
+								<span class="text-amber-600 font-bold uppercase tracking-wider">Rekayasa Teknik &amp; Sipil</span>
+								<span>•</span>
+								<span>Oleh Tim Riset Sipil Skylander</span>
+								<span>•</span>
+								<span>23 Mei 2023</span>
+								<span>•</span>
+								<span class="inline-flex items-center gap-1">
+									<span class="material-symbols-outlined text-[13px] leading-none">schedule</span>
+									<span>5 Menit Baca</span>
+								</span>
+							</div>
+
+							<h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+								<a href="/service/konstruksi-bangunan-sipil">
+									Disini Tempatnya Mempercayakan Konstruksi Bangunan Sipil di Papua ke Tangan Ahli!
+								</a>
+							</h2>
+
+							<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed">
+								Apakah Anda sedang mencari jasa konstruksi bangunan sipil terpercaya di Papua? CV Skylander menghadirkan solusi rancang bangun berstandar SNI dengan ketahanan gempa dan pemahaman mendalam terhadap kondisi geoteknis lokal Indonesia Timur. Melalui penerapan studi kelayakan pondasi tanah rawa hingga lereng pegunungan, setiap proyek dirancang kokoh tanpa kompromi estetika.
+							</p>
+
+							<div class="pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-4">
+								<div class="inline-flex items-center gap-1.5 font-mono text-xs text-stone-500">
+									<span class="material-symbols-outlined text-amber-600 text-[16px] leading-none">verified</span>
+									<span>SNI 1726:2019 Seismic Compliant</span>
+								</div>
+
+								<a
+									href="/service/konstruksi-bangunan-sipil"
+									class="inline-flex items-center justify-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-amber-600 transition-colors"
+								>
+									<span class="leading-none">Baca Artikel Lengkap</span>
+									<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+								</a>
+							</div>
+						</div>
+					</article>
+
+					<!-- 2x2 Articles Grid -->
+					<div id="blog-grid-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+						{gridArticles.map((art) => (
+							<article
+								data-blog-card
+								data-topics={art.topicIds}
+								class="bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm flex flex-col justify-between group hover:border-amber-500/60 transition-all"
+							>
+								<div>
+									<div class="relative h-56 overflow-hidden bg-stone-900">
+										<img
+											src={art.image}
+											alt={art.title}
+											class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+										/>
+										<div class="absolute top-3 left-3">
+											<span class="px-2.5 py-1 rounded bg-stone-950/90 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+												{art.badge}
+											</span>
+										</div>
+									</div>
+
+									<div class="p-6 space-y-3">
+										<div class="flex items-center gap-2 font-mono text-[11px] text-stone-400">
+											<span class="text-amber-600 font-semibold">{art.date}</span>
+											<span>•</span>
+											<span>{art.readTime}</span>
+										</div>
+
+										<h3 class="font-heading font-bold text-lg text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+											<a href={art.href}>{art.title}</a>
+										</h3>
+
+										<p class="font-body text-xs text-stone-600 leading-relaxed">
+											{art.excerpt}
+										</p>
+									</div>
+								</div>
+
+								<div class="px-6 pb-6 pt-3 flex items-center justify-between text-xs">
+									<span class="font-mono text-[11px] text-stone-400">{art.footerTag}</span>
+									<a
+										href={art.href}
+										class="inline-flex items-center justify-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-amber-600 transition-colors"
+									>
+										<span class="leading-none">Baca Artikel</span>
+										<span class="material-symbols-outlined text-[15px] leading-none">arrow_forward</span>
+									</a>
+								</div>
+							</article>
+						))}
+					</div>
+
+					<!-- Empty State when Search has 0 Matches -->
+					<div
+						id="blog-empty-state"
+						class="hidden bg-white border border-stone-200 rounded-lg p-12 text-center space-y-4 shadow-sm"
+					>
+						<div class="w-12 h-12 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center mx-auto">
+							<span class="material-symbols-outlined text-[24px] leading-none">search_off</span>
+						</div>
+						<div class="space-y-1">
+							<h3 class="font-heading font-bold text-lg text-stone-900">Artikel Tidak Ditemukan</h3>
+							<p class="font-body text-xs text-stone-500 max-w-sm mx-auto">
+								Tidak ada artikel yang cocok dengan kata kunci pencarian Anda. Silakan gunakan kata kunci lain atau tampilkan semua artikel.
+							</p>
+						</div>
+						<button
+							type="button"
+							id="reset-blog-filter"
+							class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-stone-950 hover:bg-amber-500 text-white hover:text-stone-950 font-heading text-xs font-bold uppercase tracking-wider rounded transition-colors"
+						>
+							<span class="leading-none">Tampilkan Semua Artikel</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- RIGHT SIDEBAR COLUMN (4 Cols) -->
+				<aside class="lg:col-span-4 space-y-6">
+					<!-- Sidebar Card 1: Cari Artikel Teknis -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="flex items-center gap-2 font-heading text-xs font-bold uppercase tracking-wider text-stone-900">
+							<span class="material-symbols-outlined text-amber-600 text-[18px] leading-none">manage_search</span>
+							<span class="leading-none">Cari Artikel Teknis</span>
+						</div>
+
+						<div class="flex items-center">
+							<input
+								id="blog-search-input"
+								type="text"
+								placeholder="Kata kunci: Papua, Renovasi, SNI..."
+								class="w-full h-10 px-3.5 text-xs font-body bg-stone-50 border border-stone-200 rounded-l focus:outline-none focus:border-amber-500 text-stone-800"
+							/>
+							<button
+								id="blog-search-btn"
+								type="button"
+								aria-label="Cari artikel"
+								class="h-10 w-10 bg-stone-950 hover:bg-amber-500 text-white hover:text-stone-950 rounded-r flex items-center justify-center transition-colors shrink-0"
+							>
+								<span class="material-symbols-outlined text-[18px] leading-none">search</span>
+							</button>
+						</div>
+
+						<div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-stone-400">
+							<span>Populer:</span>
+							<button type="button" data-quick-keyword="SNI" class="hover:text-amber-600 underline cursor-pointer">SNI</button>,
+							<button type="button" data-quick-keyword="Papua" class="hover:text-amber-600 underline cursor-pointer">Papua</button>,
+							<button type="button" data-quick-keyword="Renovasi" class="hover:text-amber-600 underline cursor-pointer">Renovasi</button>,
+							<button type="button" data-quick-keyword="SLF" class="hover:text-amber-600 underline cursor-pointer">SLF</button>
+						</div>
+					</div>
+
+					<!-- Sidebar Card 2: Dokumentasi Korporat -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-amber-600 font-bold block">
+								Dokumentasi Korporat
+							</span>
+							<h3 class="font-heading font-bold text-base text-stone-900">
+								Unduh Profil &amp; Katalog Resmi CV Skylander
+							</h3>
+						</div>
+
+						<p class="font-body text-xs text-stone-600 leading-relaxed">
+							Daftar rekam jejak proyek sipil, legalitas tenaga ahli ber-SKA, dan rincian peralatan konstruksi berat terbaru.
+						</p>
+
+						<a
+							href="/legalitas-perusahaan?mode=lengkap"
+							class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-stone-950 hover:bg-amber-500 text-white hover:text-stone-950 font-heading text-xs font-bold uppercase tracking-wider rounded transition-colors"
+						>
+							<span class="material-symbols-outlined text-[16px] leading-none">download</span>
+							<span class="leading-none">Lihat Berkas Profil</span>
+						</a>
+
+						<div class="flex items-center justify-between font-mono text-[10px] text-stone-400 pt-1">
+							<span>Dokumen Resmi</span>
+							<span>12 Lembar Legalitas</span>
+						</div>
+					</div>
+
+					<!-- Sidebar Card 3: Jadwalkan Konsultasi Teknis & RAB (Dark Card) -->
+					<div class="bg-stone-950 text-white border border-stone-800 rounded-lg p-6 space-y-5 shadow-md">
+						<div class="space-y-1.5">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-amber-400 font-bold block">
+								Respon Cepat 1x24 Jam
+							</span>
+							<h3 class="font-heading font-bold text-lg text-white leading-snug">
+								Jadwalkan Konsultasi Teknis &amp; RAB Proyek
+							</h3>
+						</div>
+
+						<p class="font-body text-xs text-stone-300 leading-relaxed">
+							Diskusikan kebutuhan gambar kerja, perhitungan BoQ, atau perizinan gedung bersama insinyur lapangan kami via sambungan instan.
+						</p>
+
+						<a
+							href={createWhatsAppUrl("Halo Tim Insinyur CV. Skylander, saya ingin menjadwalkan konsultasi teknis dan RAB proyek.")}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-heading text-xs font-bold uppercase tracking-wider rounded transition-colors shadow"
+						>
+							<span class="material-symbols-outlined text-[16px] leading-none">chat</span>
+							<span class="leading-none">Konsultasi WhatsApp</span>
+							<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+						</a>
+					</div>
+
+					<!-- Sidebar Card 4: Kategori Wawasan (Interactive Filter) -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-2 font-heading text-xs font-bold uppercase tracking-wider text-stone-900">
+								<span class="material-symbols-outlined text-amber-600 text-[16px] leading-none">category</span>
+								<span class="leading-none">Kategori Wawasan</span>
+							</div>
+							<span class="font-mono text-[10px] text-stone-400">Indeks</span>
+						</div>
+
+						<div class="space-y-2 pt-1">
+							{categories.map((cat) => (
+								<button
+									type="button"
+									data-topic-btn={cat.id}
+									class="w-full flex items-center justify-between py-1 text-left text-xs font-body text-stone-600 hover:text-amber-600 transition-colors cursor-pointer group"
+								>
+									<span class="group-hover:translate-x-0.5 transition-transform">{cat.name}</span>
+									<span class="px-2 py-0.5 rounded bg-stone-100 group-hover:bg-amber-500/10 group-hover:text-amber-700 font-mono text-[11px] font-semibold text-stone-700 transition-colors">
+										{cat.count}
+									</span>
+								</button>
+							))}
+						</div>
+					</div>
+
+					<!-- Sidebar Card 5: Arsip Publikasi -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-2 font-heading text-xs font-bold uppercase tracking-wider text-stone-900">
+								<span class="material-symbols-outlined text-amber-600 text-[16px] leading-none">calendar_month</span>
+								<span class="leading-none">Arsip Publikasi</span>
+							</div>
+							<span class="font-mono text-[10px] text-stone-400">Kronologis</span>
+						</div>
+
+						<div class="space-y-2.5 pt-1">
+							{archives.map((arc) => (
+								<button
+									type="button"
+									data-topic-btn="all"
+									class="w-full flex items-center justify-between text-xs font-body text-stone-600 hover:text-amber-600 transition-colors cursor-pointer"
+								>
+									<span>{arc.month}</span>
+									<span class="font-mono text-[11px] text-stone-400">{arc.count}</span>
+								</button>
+							))}
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		function initBlogFilters() {
+			const topicButtons = document.querySelectorAll<HTMLButtonElement>("[data-topic-btn]");
+			const pillButtons = document.querySelectorAll<HTMLButtonElement>(".topic-filter-btn");
+			const cards = document.querySelectorAll<HTMLElement>("[data-blog-card]");
+			const searchInput = document.getElementById("blog-search-input") as HTMLInputElement | null;
+			const searchBtn = document.getElementById("blog-search-btn");
+			const quickKeywords = document.querySelectorAll<HTMLButtonElement>("[data-quick-keyword]");
+			const emptyState = document.getElementById("blog-empty-state");
+			const resetBtn = document.getElementById("reset-blog-filter");
+			const countBadge = document.getElementById("visible-count-badge");
+
+			let activeTopic = "all";
+			let searchQuery = "";
+
+			function updateFilter() {
+				let visibleCount = 0;
+				const q = searchQuery.trim().toLowerCase();
+
+				cards.forEach((card) => {
+					const cardTopics = (card.getAttribute("data-topics") || "").split(",");
+					const text = (card.textContent || "").toLowerCase();
+
+					const matchesTopic = activeTopic === "all" || cardTopics.includes(activeTopic);
+					const matchesSearch = q === "" || text.includes(q);
+
+					if (matchesTopic && matchesSearch) {
+						card.classList.remove("hidden");
+						visibleCount++;
+					} else {
+						card.classList.add("hidden");
+					}
+				});
+
+				pillButtons.forEach((btn) => {
+					const btnTopic = btn.getAttribute("data-topic-btn");
+					if (btnTopic === activeTopic) {
+						btn.className =
+							"topic-filter-btn px-3.5 py-1.5 rounded text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer bg-stone-950 text-white shadow-sm";
+					} else {
+						btn.className =
+							"topic-filter-btn px-3.5 py-1.5 rounded text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer bg-white text-stone-600 border border-stone-200 hover:border-amber-500 hover:text-stone-900";
+					}
+				});
+
+				if (emptyState) {
+					if (visibleCount === 0) {
+						emptyState.classList.remove("hidden");
+					} else {
+						emptyState.classList.add("hidden");
+					}
+				}
+
+				if (countBadge) {
+					countBadge.textContent = `${visibleCount} Terbitan`;
+				}
+			}
+
+			topicButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const selected = btn.getAttribute("data-topic-btn") || "all";
+					activeTopic = selected;
+					updateFilter();
+				});
+			});
+
+			if (searchInput) {
+				searchInput.addEventListener("input", () => {
+					searchQuery = searchInput.value;
+					updateFilter();
+				});
+			}
+
+			if (searchBtn && searchInput) {
+				searchBtn.addEventListener("click", () => {
+					searchQuery = searchInput.value;
+					updateFilter();
+				});
+			}
+
+			quickKeywords.forEach((kwBtn) => {
+				kwBtn.addEventListener("click", () => {
+					const kw = kwBtn.getAttribute("data-quick-keyword") || "";
+					if (searchInput) {
+						searchInput.value = kw;
+					}
+					activeTopic = "all";
+					searchQuery = kw;
+					updateFilter();
+				});
+			});
+
+			if (resetBtn) {
+				resetBtn.addEventListener("click", () => {
+					activeTopic = "all";
+					searchQuery = "";
+					if (searchInput) {
+						searchInput.value = "";
+					}
+					updateFilter();
+				});
+			}
+		}
+
+		initBlogFilters();
+	</script>
+</BaseLayout>

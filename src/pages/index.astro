@@ -1,0 +1,659 @@
+---
+import { createWhatsAppUrl } from "@/data/company";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+	<!-- 2. HERO SECTION (Full-Viewport with Transparent Top Navbar like Image #55) -->
+	<section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-stone-950">
+		<!-- Full-Bleed Background Image -->
+		<div
+			class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out scale-100"
+			style="background-image: url('/images/stitch/stitch_02_4631cb0af0.webp');"
+		></div>
+		<!-- Subtle Ambient Gradient Overlay -->
+		<div class="absolute inset-0 bg-gradient-to-r from-stone-950/75 via-stone-950/25 to-transparent"></div>
+		<div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-stone-950/35"></div>
+
+		<!-- Hero Content Container -->
+		<div class="relative max-w-[1440px] w-full mx-auto px-6 lg:px-12 pt-28 pb-10 lg:pt-32 lg:pb-12 flex flex-col justify-between min-h-screen">
+			<!-- 2-Line Headline & Concise Subtitle -->
+			<div class="max-w-3xl space-y-5 my-auto">
+				<h1 class="font-heading font-extrabold text-white text-4xl sm:text-6xl lg:text-[68px] tracking-tight leading-[1.05]">
+					Jasa Konstruksi<br />
+					<span class="text-amber-500 font-normal italic">Profesional.</span>
+				</h1>
+				<p class="font-body text-base sm:text-lg text-stone-200/90 max-w-xl font-normal leading-relaxed">
+					Berpengalaman sejak 2011 dalam industri ini, Kami siap membantu Anda merancang, membangun, dan merenovasi berbagai jenis bangunan.
+				</p>
+				<!-- Primary Actions -->
+				<div class="flex flex-wrap items-center gap-4 pt-3">
+					<a
+						class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-stone-900 hover:bg-amber-500 text-white hover:text-stone-950 transition-colors duration-200 font-heading text-xs uppercase tracking-wider font-bold rounded border border-white/20 shadow-md"
+						href={createWhatsAppUrl("Halo CV. Skylander, saya memiliki rencana pembangunan dan ingin berkonsultasi sekarang.")}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<span class="leading-none">Konsultasikan Sekarang</span>
+						<span class="material-symbols-outlined text-[18px] leading-none">arrow_forward</span>
+					</a>
+					<a
+						class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-colors font-heading text-xs uppercase tracking-wider font-semibold rounded border border-white/20"
+						href="#services"
+					>
+						<span class="material-symbols-outlined text-amber-500 text-[18px] leading-none">grid_view</span>
+						<span class="leading-none">Layanan Unggulan</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- Bottom Stats Pill Overlay (Title Case - Image #60 Fix) -->
+			<div class="w-full bg-stone-950/80 backdrop-blur-xl border border-white/10 rounded-xl p-6 sm:p-8 mt-12 shadow-2xl">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 divide-y sm:divide-y-0 divide-stone-800 lg:divide-x lg:divide-white/10">
+					<div class="flex flex-col justify-between space-y-2 lg:pr-6">
+						<div class="flex items-baseline gap-2 font-heading text-2xl lg:text-3xl font-extrabold text-amber-400 tracking-tight">
+							<span>12+</span>
+							<span>Tahun</span>
+						</div>
+						<span class="font-mono text-xs text-stone-300 leading-relaxed">Pengalaman Sejak 2011</span>
+					</div>
+					<div class="flex flex-col justify-between space-y-2 pt-4 sm:pt-0 lg:px-6">
+						<div class="flex items-baseline gap-2 font-heading text-2xl lg:text-3xl font-extrabold text-amber-400 tracking-tight">
+							<span>368+</span>
+							<span>Bangunan</span>
+						</div>
+						<span class="font-mono text-xs text-stone-300 leading-relaxed">Proyek Diselesaikan</span>
+					</div>
+					<div class="flex flex-col justify-between space-y-2 pt-4 lg:pt-0 lg:px-6">
+						<div class="flex items-baseline gap-2 font-heading text-2xl lg:text-3xl font-extrabold text-amber-400 tracking-tight">
+							<span>96%</span>
+							<span>Puas</span>
+						</div>
+						<span class="font-mono text-xs text-stone-300 leading-relaxed">Tingkat Kepuasan Pelanggan</span>
+					</div>
+					<div class="flex flex-col justify-between space-y-2 pt-4 lg:pt-0 lg:pl-6">
+						<div class="flex items-baseline gap-2 font-heading text-2xl lg:text-3xl font-extrabold text-amber-400 tracking-tight">
+							<span>Nol</span>
+							<span>Kecelakaan</span>
+						</div>
+						<span class="font-mono text-xs text-stone-300 leading-relaxed">Prioritas K3 &amp; Keselamatan</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. TENTANG CV SKYLANDER & KENAPA KAMI (2-Column Split, 60/40) -->
+	<section class="py-24 bg-stone-50 border-b border-stone-200" id="about">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+				<!-- 60% Width High-Resolution Execution Photo -->
+				<div class="lg:col-span-7 relative min-h-[460px] lg:min-h-[580px] rounded-lg overflow-hidden border border-stone-200 shadow-sm group">
+					<div
+						class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Tim insinyur CV. Skylander memeriksa struktur bangunan di lapangan"
+						style="background-image: url('/images/stitch/stitch_03_120eda0d0c.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent"></div>
+					<div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-mono text-xs">
+						<div class="flex items-center justify-between w-full text-white/90 font-mono text-xs">
+							<span class="tracking-wider uppercase text-[11px]">Inspeksi &amp; Eksekusi Struktur Lapangan CV. Skylander</span>
+							<span class="hidden sm:inline-block text-stone-300 text-[11px]">Berdiri Sejak 2011</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 40% Minimalist Card with 3 Metric Counters & 4 Pillars -->
+				<div class="lg:col-span-5 bg-white border border-stone-200 rounded-lg p-8 lg:p-10 flex flex-col justify-between shadow-sm">
+					<div class="space-y-4">
+						<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+							Tentang CV. Skylander
+						</span>
+						<h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-stone-900 tracking-tight leading-snug">
+							Solusi Konstruksi Berkualitas Tinggi &amp; Inovatif Sejak 2011.
+						</h2>
+						<p class="font-body text-sm text-stone-600 leading-relaxed">
+							Kami merupakan perusahaan yang berdiri pada tahun 2011. Sebagai penyedia konstruksi yang berkomitmen untuk memberikan solusi konstruksi berkualitas tinggi dan inovatif. Kami selalu mencoba hal terbaik untuk kepuasan pelanggan Kami.
+						</p>
+					</div>
+
+					<!-- 3 Key Metric Counters (Title Case & Clean Spacing - Image #59 Fix) -->
+					<div class="my-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+						<div class="flex flex-col">
+							<div class="flex items-baseline gap-1.5 font-heading text-xl font-extrabold text-stone-900 tracking-tight">
+								<span>12+</span>
+								<span>Tahun</span>
+							</div>
+							<div class="mt-1.5 space-y-1">
+								<span class="font-heading text-xs font-bold text-amber-600 block">Pengalaman</span>
+								<p class="font-body text-xs text-stone-500 leading-relaxed">Berpengalaman sejak tahun 2011.</p>
+							</div>
+						</div>
+						<div class="flex flex-col">
+							<div class="flex items-baseline gap-1.5 font-heading text-xl font-extrabold text-stone-900 tracking-tight">
+								<span>368+</span>
+								<span>Karya</span>
+							</div>
+							<div class="mt-1.5 space-y-1">
+								<span class="font-heading text-xs font-bold text-amber-600 block">Proyek Selesai</span>
+								<p class="font-body text-xs text-stone-500 leading-relaxed">Hunian, kantor &amp; bangunan sipil.</p>
+							</div>
+						</div>
+						<div class="flex flex-col">
+							<div class="flex items-baseline gap-1.5 font-heading text-xl font-extrabold text-stone-900 tracking-tight">
+								<span>96%</span>
+								<span>Puas</span>
+							</div>
+							<div class="mt-1.5 space-y-1">
+								<span class="font-heading text-xs font-bold text-amber-600 block">Pelanggan Puas</span>
+								<p class="font-body text-xs text-stone-500 leading-relaxed">Komitmen terbaik kepuasan klien.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- 4 Pillars: Kenapa Kami? (From skylander.co.id) -->
+					<div class="space-y-2.5">
+						<span class="font-heading text-[11px] uppercase tracking-widest text-stone-400 font-bold block">
+							Kenapa Memilih Kami?
+						</span>
+						<div class="grid grid-cols-2 gap-2.5 pt-1">
+							<div class="inline-flex items-center gap-2 text-stone-700 font-heading text-xs font-bold">
+								<span class="material-symbols-outlined text-amber-600 text-[16px]">eco</span>
+								<span>Ramah Lingkungan</span>
+							</div>
+							<div class="inline-flex items-center gap-2 text-stone-700 font-heading text-xs font-bold">
+								<span class="material-symbols-outlined text-amber-600 text-[16px]">schedule</span>
+								<span>Pengerjaan Tepat Waktu</span>
+							</div>
+							<div class="inline-flex items-center gap-2 text-stone-700 font-heading text-xs font-bold">
+								<span class="material-symbols-outlined text-amber-600 text-[16px]">precision_manufacturing</span>
+								<span>Teknologi Modern</span>
+							</div>
+							<div class="inline-flex items-center gap-2 text-stone-700 font-heading text-xs font-bold">
+								<span class="material-symbols-outlined text-amber-600 text-[16px]">architecture</span>
+								<span>Desain Inovatif &amp; Kekinian</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. LAYANAN UNGGULAN KAMI (Image-Dominant 3-Column Card Grid with Official 6 Services) -->
+	<section class="py-24 bg-stone-100" id="services">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-12">
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div class="space-y-2">
+					<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+						Layanan Lengkap
+					</span>
+					<h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-stone-900 tracking-tight">
+						Layanan Unggulan Kami
+					</h2>
+				</div>
+				<p class="font-body text-sm text-stone-600 max-w-md">
+					Kami melayani jasa konstruksi dan renovasi untuk bangunan komersial, hunian, kantor dan infrastruktur lainnya seperti pagar, jalan, jembatan, dan saluran drainase.
+				</p>
+			</div>
+
+			<!-- 3-Column Visual Grid (Aspect 4:3 Imagery with gradient text) -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<!-- Service 1: Konstruksi Bangunan Hunian -->
+				<a
+					href="/service/konstruksi-bangunan-hunian"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Konstruksi Bangunan Hunian"
+						style="background-image: url('/images/stitch/stitch_04_aeb248ed94.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 01</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Konstruksi Bangunan Hunian
+							</h3>
+							<p class="font-body text-xs text-stone-300">Pembangunan dan pengembangan berbagai jenis bangunan tempat tinggal dan hunian.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Service 2: Konstruksi Gedung Perkantoran -->
+				<a
+					href="/service/konstruksi-gedung-perkantoran"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Konstruksi Gedung Perkantoran"
+						style="background-image: url('/images/stitch/stitch_05_9b5c3d9c92.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 02</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Konstruksi Gedung Perkantoran
+							</h3>
+							<p class="font-body text-xs text-stone-300">Membangun gedung perkantoran mulai dari perencanaan hingga penyelesaian.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Service 3: Konstruksi Prasarana Sumber Daya Air -->
+				<a
+					href="/service/konstruksi-prasarana-sumber-daya-air"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Konstruksi Prasarana Sumber Daya Air"
+						style="background-image: url('/images/stitch/stitch_06_322bf1b092.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 03</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Konstruksi Prasarana Sumber Daya Air
+							</h3>
+							<p class="font-body text-xs text-stone-300">Melayani pembangunan berbagai fasilitas yang terkait dengan manajemen air.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Service 4: Jasa Renovasi -->
+				<a
+					href="/service/jasa-renovasi"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Jasa Renovasi Bangunan"
+						style="background-image: url('/images/stitch/stitch_07_d2aed24740.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 04</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Jasa Renovasi
+							</h3>
+							<p class="font-body text-xs text-stone-300">Melayani pekerjaan untuk memperbarui, memperbaiki, atau mengubah bangunan yang sudah ada.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Service 5: Pekerjaan Landscape dan Taman -->
+				<a
+					href="/service/jasa-lanskap"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Pekerjaan Landscape dan Taman"
+						style="background-image: url('/images/stitch/stitch_08_31fb316742.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 05</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Pekerjaan Landscape dan Taman
+							</h3>
+							<p class="font-body text-xs text-stone-300">Tim ahli merancang, membangun, dan merawat taman serta lingkungan luar ruangan.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Service 6: Konstruksi Bangunan Sipil & Desain Arsitektur -->
+				<a
+					href="/service/konstruksi-bangunan-sipil"
+					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
+				>
+					<div
+						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+						data-alt="Konstruksi Bangunan Sipil"
+						style="background-image: url('/images/stitch/stitch_10_d983c13249.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Layanan 06</span>
+							<h3 class="font-heading font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+								Konstruksi Bangunan Sipil
+							</h3>
+							<p class="font-body text-xs text-stone-300">Pengembangan berbagai jenis struktur bangunan terkait infrastruktur dan utilitas publik.</p>
+						</div>
+						<div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-amber-500 group-hover:text-stone-950 text-white flex items-center justify-center transition-colors shrink-0">
+							<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5. TIM KOMPETEN & 4 SIKAP KERJA TIM (From skylander.co.id) -->
+	<section class="py-20 bg-stone-50 border-b border-stone-200" id="craftsmanship">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-8">
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+				<div class="space-y-2">
+					<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+						Tim Kompeten
+					</span>
+					<h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-stone-900 tracking-tight">
+						4 Sikap Kerja Tim Profesional Kami
+					</h2>
+				</div>
+				<p class="font-body text-sm text-stone-600 max-w-md">
+					Dengan pengalaman sejak 2011 tentu Kami memiliki tim kompeten pada bidangnya sehingga Anda tidak perlu ragu menggunakan layanan Kami.
+				</p>
+			</div>
+
+			<!-- 4-Photo Strip Showcase for 4 Sikap Kerja Tim -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+				<!-- Sikap 1: Kesehatan & Keselamatan -->
+				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
+					<div
+						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+						data-alt="Kesehatan dan Keselamatan Kerja"
+						style="background-image: url('/images/stitch/stitch_07_d2aed24740.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
+						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 01</span>
+						<h3 class="font-heading font-bold text-base text-white">Kesehatan &amp; Keselamatan</h3>
+						<p class="font-body text-xs text-stone-300 leading-relaxed">
+							Mengutamakan standar keselamatan kerja (K3) demi keamanan seluruh tim dan lingkungan proyek.
+						</p>
+					</div>
+				</div>
+
+				<!-- Sikap 2: Inovasi & Pembaruan -->
+				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
+					<div
+						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+						data-alt="Inovasi dan Pembaruan"
+						style="background-image: url('/images/stitch/stitch_09_121b7fe264.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
+						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 02</span>
+						<h3 class="font-heading font-bold text-base text-white">Inovasi &amp; Pembaruan</h3>
+						<p class="font-body text-xs text-stone-300 leading-relaxed">
+							Terus beradaptasi dengan metode konstruksi terbaru serta desain arsitektur modern.
+						</p>
+					</div>
+				</div>
+
+				<!-- Sikap 3: Perencanaan yang Matang -->
+				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
+					<div
+						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+						data-alt="Perencanaan yang Matang"
+						style="background-image: url('/images/stitch/stitch_11_86284da6ef.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
+						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 03</span>
+						<h3 class="font-heading font-bold text-base text-white">Perencanaan yang Matang</h3>
+						<p class="font-body text-xs text-stone-300 leading-relaxed">
+							Setiap tahapan dikalkulasi secara terperinci mulai dari survei, desain, hingga estimasi anggaran.
+						</p>
+					</div>
+				</div>
+
+				<!-- Sikap 4: Efisien & Kualitas -->
+				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
+					<div
+						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+						data-alt="Efisien dan Kualitas"
+						style="background-image: url('/images/stitch/stitch_02_4631cb0af0.webp');"
+					></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
+						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 04</span>
+						<h3 class="font-heading font-bold text-base text-white">Efisien &amp; Kualitas</h3>
+						<p class="font-body text-xs text-stone-300 leading-relaxed">
+							Menyelesaikan pekerjaan tepat waktu secara efisien dengan hasil kualitas konstruksi terbaik.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. APA KATA PELANGGAN KAMI? TESTIMONI ASLI & MITRA -->
+	<section class="py-24 bg-stone-100 border-b border-stone-200" id="projects">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-16">
+			<div class="text-center max-w-2xl mx-auto space-y-2">
+				<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+					Testimoni
+				</span>
+				<h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-stone-900 tracking-tight">
+					Apa Kata Pelanggan Kami?
+				</h2>
+			</div>
+
+			<!-- 3 Authentic Testimonials from skylander.co.id (Leonardo, Daniel, Franz) -->
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+				<!-- Testimonial 1: Leonardo -->
+				<div class="bg-white border border-stone-200 rounded-lg p-8 shadow-sm flex flex-col justify-between space-y-6">
+					<div class="space-y-4">
+						<div class="flex items-center gap-1 text-amber-500">
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+						</div>
+						<p class="font-body text-sm text-stone-700 italic leading-relaxed">
+							“Tim Skylander sangat responsif dan berkomunikasi dengan baik sepanjang proyek. Mereka mendengarkan kebutuhan dan preferensi saya dengan cermat, dan memberikan solusi yang sesuai dengan visi saya. Mereka memberikan saran berharga dan ide kreatif yang meningkatkan hasil akhir proyek.”
+						</p>
+					</div>
+					<div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+						<div>
+							<span class="font-heading text-sm uppercase tracking-wider text-stone-900 font-bold block">Leonardo</span>
+							<span class="font-mono text-xs text-amber-600 font-medium">Pelanggan CV. Skylander</span>
+						</div>
+						<span class="material-symbols-outlined text-stone-300 text-3xl">format_quote</span>
+					</div>
+				</div>
+
+				<!-- Testimonial 2: Daniel -->
+				<div class="bg-white border border-stone-200 rounded-lg p-8 shadow-sm flex flex-col justify-between space-y-6">
+					<div class="space-y-4">
+						<div class="flex items-center gap-1 text-amber-500">
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+						</div>
+						<p class="font-body text-sm text-stone-700 italic leading-relaxed">
+							“Saya sangat merekomendasikan Skylander kepada siapa pun yang mencari jasa konstruksi profesional. Mereka adalah tim yang dapat diandalkan, amanah, dan memiliki dedikasi yang tinggi terhadap pekerjaan mereka.”
+						</p>
+					</div>
+					<div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+						<div>
+							<span class="font-heading text-sm uppercase tracking-wider text-stone-900 font-bold block">Daniel</span>
+							<span class="font-mono text-xs text-amber-600 font-medium">Pelanggan CV. Skylander</span>
+						</div>
+						<span class="material-symbols-outlined text-stone-300 text-3xl">format_quote</span>
+					</div>
+				</div>
+
+				<!-- Testimonial 3: Franz -->
+				<div class="bg-white border border-stone-200 rounded-lg p-8 shadow-sm flex flex-col justify-between space-y-6">
+					<div class="space-y-4">
+						<div class="flex items-center gap-1 text-amber-500">
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+							<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+						</div>
+						<p class="font-body text-sm text-stone-700 italic leading-relaxed">
+							“Selama proses konstruksi, saya terkesan dengan keterampilan dan keahlian tim Skylander. Mereka adalah para profesional yang berpengalaman dan memiliki pemahaman yang mendalam tentang teknik konstruksi terkini.”
+						</p>
+					</div>
+					<div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+						<div>
+							<span class="font-heading text-sm uppercase tracking-wider text-stone-900 font-bold block">Franz</span>
+							<span class="font-mono text-xs text-amber-600 font-medium">Pelanggan CV. Skylander</span>
+						</div>
+						<span class="material-symbols-outlined text-stone-300 text-3xl">format_quote</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Partner Logo Bar (Real Partner Logos from skylander.co.id) -->
+			<div class="space-y-6 pt-4">
+				<span class="block text-center font-heading text-xs uppercase tracking-[0.25em] text-stone-400 font-bold">
+					Mitra &amp; Rekanan Kerja Sama Kami
+				</span>
+				<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+					<div class="h-16 flex items-center justify-center bg-white border border-stone-200 rounded px-6">
+						<img src="/images/original/logo01-min-7.png" alt="Partner 1" class="max-h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+					</div>
+					<div class="h-16 flex items-center justify-center bg-white border border-stone-200 rounded px-6">
+						<img src="/images/original/logo02-min-7.png" alt="Partner 2" class="max-h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+					</div>
+					<div class="h-16 flex items-center justify-center bg-white border border-stone-200 rounded px-6">
+						<img src="/images/original/logo03-min-1-6.png" alt="Partner 3" class="max-h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+					</div>
+					<div class="h-16 flex items-center justify-center bg-white border border-stone-200 rounded px-6">
+						<img src="/images/original/logo04-min-1-6.png" alt="Partner 4" class="max-h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+					</div>
+					<div class="h-16 flex items-center justify-center bg-white border border-stone-200 rounded px-6">
+						<img src="/images/original/logo05-min-1-6.png" alt="Partner 5" class="max-h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 7. INFO TERBARU / BLOG ARTIKEL (From skylander.co.id) -->
+	<section class="py-24 bg-stone-50" id="blog">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-12">
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200 pb-8">
+				<div class="space-y-2">
+					<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+						Artikel &amp; Publikasi
+					</span>
+					<h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-stone-900 tracking-tight">
+						Info Terbaru
+					</h2>
+				</div>
+				<span class="font-mono text-xs text-stone-500 uppercase tracking-wider">
+					Wawasan Seputar Konstruksi &amp; Renovasi Bangunan
+				</span>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Article 1 -->
+				<article class="group bg-white rounded-lg border border-stone-200 overflow-hidden shadow-sm flex flex-col justify-between">
+					<div>
+						<div class="relative h-60 overflow-hidden bg-stone-100">
+							<img
+								src="/images/stitch/stitch_10_d983c13249.webp"
+								alt="Disini Tempatnya Mempercayakan Konstruksi Bangunan Sipil di Papua ke Tangan Ahli"
+								class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							/>
+						</div>
+						<div class="p-6 space-y-3">
+							<span class="font-mono text-[11px] text-amber-600 uppercase tracking-widest block">Konstruksi Bangunan Sipil</span>
+							<h3 class="font-heading font-bold text-lg text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+								Disini Tempatnya Mempercayakan Konstruksi Bangunan Sipil di Papua ke Tangan Ahli
+							</h3>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">
+								Pembangunan infrastruktur dan konstruksi bangunan sipil di Papua membutuhkan keahlian khusus, armada lengkap, dan tim berpengalaman.
+							</p>
+						</div>
+					</div>
+					<div class="px-6 pb-6 pt-2">
+						<a href="/service/konstruksi-bangunan-sipil" class="inline-flex items-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-amber-600 transition-colors">
+							<span class="leading-none">Baca Selengkapnya</span>
+							<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+						</a>
+					</div>
+				</article>
+
+				<!-- Article 2 -->
+				<article class="group bg-white rounded-lg border border-stone-200 overflow-hidden shadow-sm flex flex-col justify-between">
+					<div>
+						<div class="relative h-60 overflow-hidden bg-stone-100">
+							<img
+								src="/images/stitch/stitch_04_aeb248ed94.webp"
+								alt="Temukan Layanan Konstruksi Terbaik untuk Renovasi Rumah Anda di Sini"
+								class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							/>
+						</div>
+						<div class="p-6 space-y-3">
+							<span class="font-mono text-[11px] text-amber-600 uppercase tracking-widest block">Jasa Renovasi</span>
+							<h3 class="font-heading font-bold text-lg text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+								Temukan Layanan Konstruksi Terbaik untuk Renovasi Rumah Anda di Sini
+							</h3>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">
+								Solusi tepat memperbarui, memperbaiki, dan menata ulang hunian Anda bersama tim kontraktor terpercaya sejak 2011.
+							</p>
+						</div>
+					</div>
+					<div class="px-6 pb-6 pt-2">
+						<a href="/service/jasa-renovasi" class="inline-flex items-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-amber-600 transition-colors">
+							<span class="leading-none">Baca Selengkapnya</span>
+							<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+						</a>
+					</div>
+				</article>
+
+				<!-- Article 3 -->
+				<article class="group bg-white rounded-lg border border-stone-200 overflow-hidden shadow-sm flex flex-col justify-between">
+					<div>
+						<div class="relative h-60 overflow-hidden bg-stone-100">
+							<img
+								src="/images/original/Home-2-1.webp"
+								alt="Cari Tahu Tahapan untuk Mendapatkan Layanan Konstruksi Terbaik"
+								class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							/>
+						</div>
+						<div class="p-6 space-y-3">
+							<span class="font-mono text-[11px] text-amber-600 uppercase tracking-widest block">Panduan Konstruksi</span>
+							<h3 class="font-heading font-bold text-lg text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+								Cari Tahu Tahapan untuk Mendapatkan Layanan Konstruksi Terbaik
+							</h3>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">
+								Mulai dari konsultasi awal, survei lokasi, penyusunan RAB transparan, hingga eksekusi pembangunan berkualitas tinggi.
+							</p>
+						</div>
+					</div>
+					<div class="px-6 pb-6 pt-2">
+						<a href="/faq" class="inline-flex items-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-stone-900 group-hover:text-amber-600 transition-colors">
+							<span>Baca Selengkapnya</span>
+							<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+						</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

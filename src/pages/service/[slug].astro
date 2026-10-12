@@ -1,0 +1,409 @@
+---
+import { company, createWhatsAppUrl } from "@/data/company";
+import { type ServiceItem, services } from "@/data/services";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+	return services.map((service) => ({
+		params: { slug: service.slug },
+		props: { service },
+	}));
+}
+
+interface Props {
+	service: ServiceItem;
+}
+
+const { service } = Astro.props;
+const otherServices = services.filter((s) => s.slug !== service.slug);
+const fallbackImage =
+	"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='800' height='600' fill='%231C1917'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23C58B1B' font-family='sans-serif' font-size='24'>CV. Skylander</text></svg>";
+
+const advantages = [
+	{
+		icon: "architecture",
+		title: "Desain Inovatif & Kekinian",
+		desc: "Rancangan tata ruang modern dan fungsional yang memaksimalkan pencahayaan serta sirkulasi udara alami.",
+	},
+	{
+		icon: "memory",
+		title: "Teknologi Modern",
+		desc: "Penerapan metode konstruksi terkini dan peralatan presisi untuk menjamin akurasi struktur bangunan.",
+	},
+	{
+		icon: "timer",
+		title: "Pengerjaan Tepat Waktu",
+		desc: "Manajemen jadwal terukur dan pengawasan berkala agar proyek selesai tepat sesuai waktu yang disepakati.",
+	},
+	{
+		icon: "eco",
+		title: "Ramah Lingkungan",
+		desc: "Pemilihan material berkualitas ramah lingkungan serta pengelolaan limbah konstruksi yang tertib.",
+	},
+];
+
+const workflowSteps = [
+	{
+		num: "01.",
+		title: "Konsultasi Awal",
+		desc: "Diskusi kebutuhan, anggaran, dan jadwal proyek.",
+	},
+	{
+		num: "02.",
+		title: "Penyusunan Rencana",
+		desc: "Survei lokasi, desain teknis, dan spesifikasi material.",
+	},
+	{
+		num: "03.",
+		title: "Penawaran & RAB",
+		desc: "Rincian biaya transparan sesuai anggaran Anda.",
+	},
+	{
+		num: "04.",
+		title: "Pelaksanaan Proyek",
+		desc: "Pembangunan fisik dengan pengawasan mutu ketat.",
+	},
+];
+
+const siteUrl = (Astro.site ?? Astro.url).origin;
+
+const serviceSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Service",
+		name: service.title,
+		description: service.fullDescription,
+		provider: {
+			"@type": "GeneralContractor",
+			name: company.name,
+			telephone: company.phone,
+			url: siteUrl,
+		},
+		areaServed: ["Makassar", "Jayapura", "Papua", "Tana Toraja", "Indonesia"],
+		url: `${siteUrl}/service/${service.slug}`,
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: "Beranda",
+				item: `${siteUrl}/`,
+			},
+			{
+				"@type": "ListItem",
+				position: 2,
+				name: "Layanan",
+				item: `${siteUrl}/#services`,
+			},
+			{
+				"@type": "ListItem",
+				position: 3,
+				name: service.title,
+				item: `${siteUrl}/service/${service.slug}`,
+			},
+		],
+	},
+];
+---
+
+<BaseLayout
+	title={`${service.title} — Jasa Kontraktor CV. Skylander (Makassar, Papua, Toraja)`}
+	description={`${service.fullDescription} Layanan ${service.title.toLowerCase()} profesional CV. Skylander sejak 2011.`}
+	canonicalPath={`/service/${service.slug}`}
+	ogImage={service.image}
+	keywords={`${service.title.toLowerCase()}, jasa ${service.title.toLowerCase()} makassar, kontraktor ${service.title.toLowerCase()} papua, cv skylander`}
+	extraJsonLd={serviceSchema}
+>
+	<!-- 1. EDITORIAL HEADER (Exact Google Stitch Layout from Screencast) -->
+	<section class="py-14 lg:py-16 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+			<!-- Breadcrumb -->
+			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
+				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+				<span>/</span>
+				<a href="/#services" class="hover:text-stone-900 transition-colors">Layanan</a>
+				<span>/</span>
+				<span class="text-amber-600 font-bold">{service.title}</span>
+			</div>
+
+			<!-- Title & Summary Stacked Left-Aligned (Image #40 & #41 Fix) -->
+			<div class="space-y-3 max-w-4xl pt-2">
+				<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600 font-bold">
+					<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+					<span>{service.categoryTag}</span>
+				</div>
+				<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
+					{service.title}
+				</h1>
+				<p class="font-body text-base sm:text-lg text-stone-600 leading-relaxed max-w-3xl">
+					{service.headerSummary}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. MAIN CONTENT & SIDEBAR SPLIT (8 Cols Left / 4 Cols Right) -->
+	<section class="py-16 lg:py-20 bg-stone-50/60">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+				<!-- LEFT MAIN COLUMN (8 Cols) -->
+				<div class="lg:col-span-8 space-y-12">
+					<!-- A. Hero Image with Bottom Badges -->
+					<div class="rounded-lg overflow-hidden border border-stone-200 bg-stone-950 shadow-sm relative">
+						<div class="relative h-[320px] sm:h-[440px] overflow-hidden">
+							<img
+								src={service.image}
+								alt={service.title}
+								onerror={`this.src='${fallbackImage}'`}
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-transparent"></div>
+
+							<!-- Bottom Badges -->
+							<div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3">
+								<div class="px-3.5 py-2 rounded bg-stone-950/90 backdrop-blur-md text-white font-mono text-[11px] uppercase tracking-wider flex items-center gap-2 border border-white/10">
+									<span class="material-symbols-outlined text-amber-400 text-[15px]">domain</span>
+									<span>{service.badgeLeft}</span>
+								</div>
+								<div class="px-3.5 py-1.5 rounded bg-white/95 backdrop-blur-md text-stone-900 font-mono text-[11px] font-semibold shadow-sm">
+									{service.badgeRight}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- B. Technical Overview & 2x2 Scope Grid -->
+					<div class="bg-white border border-stone-200 rounded-lg p-8 sm:p-10 space-y-8 shadow-sm">
+						<div class="space-y-4">
+							<h2 class="font-heading font-extrabold text-xl sm:text-2xl text-stone-900 tracking-tight">
+								{service.overviewTitle}
+							</h2>
+							<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed">
+								{service.fullDescription} {service.secondaryDescription}
+							</p>
+						</div>
+
+						<!-- 2x2 Scope Sub-Cards -->
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+							{service.scopeCards.map((card) => (
+								<div class="bg-stone-50 border border-stone-200/80 rounded-lg p-6 space-y-2.5">
+									<div class="flex items-center gap-2.5">
+										<span class="material-symbols-outlined text-amber-600 text-[20px]">{card.icon}</span>
+										<h3 class="font-heading font-bold text-sm text-stone-900">
+											{card.title}
+										</h3>
+									</div>
+									<p class="font-body text-xs text-stone-600 leading-relaxed">
+										{card.desc}
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- C. Keuntungan Menggunakan Jasa Kami (2x2 White Cards) -->
+					<div class="space-y-8 pt-2">
+						<div class="space-y-2">
+							<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+								Nilai Tambah Kemitraan
+							</span>
+							<h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-stone-900 tracking-tight">
+								Keuntungan Menggunakan Jasa Kami
+							</h2>
+							<p class="font-body text-sm text-stone-600 leading-relaxed max-w-2xl">
+								Kami adalah mitra yang dapat diandalkan dan berpengalaman dalam menyediakan jasa {service.title.toLowerCase()} berkualitas tinggi. Berikut pilar keunggulan yang kami garansi:
+							</p>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+							{advantages.map((adv) => (
+								<div class="bg-white border border-stone-200 rounded-lg p-7 shadow-sm space-y-3 hover:border-amber-500/60 transition-colors">
+									<div class="w-10 h-10 rounded bg-amber-500/10 text-amber-600 flex items-center justify-center border border-amber-500/20">
+										<span class="material-symbols-outlined text-[20px]">{adv.icon}</span>
+									</div>
+									<h3 class="font-heading font-bold text-lg text-stone-900">
+										{adv.title}
+									</h3>
+									<p class="font-body text-xs text-stone-600 leading-relaxed">
+										{adv.desc}
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- D. Alur Operasional / Tahapan Kerja Terstruktur -->
+					<div class="bg-stone-100 border border-stone-200 rounded-lg p-8 sm:p-10 space-y-8">
+						<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+							<div class="space-y-1">
+								<span class="font-heading text-[11px] uppercase tracking-[0.2em] text-amber-600 font-bold block">
+									Alur Operasional
+								</span>
+								<h3 class="font-heading font-extrabold text-xl text-stone-900">
+									Tahapan Kerja Terstruktur
+								</h3>
+							</div>
+							<span class="font-mono text-xs text-stone-500">Standar Mutu Terverifikasi</span>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+							{workflowSteps.map((step) => (
+								<div class="space-y-2">
+									<span class="font-mono text-sm font-bold text-amber-600 block">
+										{step.num}
+									</span>
+									<h4 class="font-heading font-bold text-sm text-stone-900">
+										{step.title}
+									</h4>
+									<p class="font-body text-xs text-stone-600 leading-relaxed">
+										{step.desc}
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+
+				<!-- RIGHT SIDEBAR COLUMN (4 Cols) -->
+				<aside class="lg:col-span-4 space-y-6">
+					<!-- Sidebar Card 1: Dokumentasi Profil -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="flex items-center gap-3.5">
+							<div class="w-10 h-10 rounded bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0 border border-amber-500/20">
+								<span class="material-symbols-outlined text-[20px]">description</span>
+							</div>
+							<div>
+								<span class="font-mono text-[10px] uppercase tracking-widest text-stone-400 block">Dokumentasi Profil</span>
+								<h3 class="font-heading font-bold text-sm text-stone-900">Profil Perusahaan CV Skylander</h3>
+							</div>
+						</div>
+
+						<p class="font-body text-xs text-stone-600 leading-relaxed">
+							Daftar rekam jejak, izin legalitas NIB/SBU resmi, daftar alat berat, dan tim ahli konstruksi.
+						</p>
+
+						<div class="flex items-center justify-between text-[11px] font-mono text-stone-500 pt-1">
+							<span>Format: Dokumen Resmi</span>
+							<span class="font-bold text-stone-800">12 Lembar</span>
+						</div>
+
+						<a
+							href="/legalitas-perusahaan?mode=lengkap"
+							class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-stone-950 hover:bg-amber-500 text-white hover:text-stone-950 font-heading text-xs font-bold uppercase tracking-wider rounded transition-colors"
+						>
+							<span class="material-symbols-outlined text-[16px] leading-none">verified</span>
+							<span class="leading-none">Lihat Berkas Legalitas</span>
+						</a>
+					</div>
+
+					<!-- Sidebar Card 2: Konsultasi Rancang Bangun (Dark Card) -->
+					<div class="bg-stone-950 text-white border border-stone-800 rounded-lg p-6 space-y-5 shadow-md">
+						<div class="flex items-center gap-2.5">
+							<div class="w-8 h-8 rounded bg-stone-900 border border-stone-800 text-amber-400 flex items-center justify-center shrink-0">
+								<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+							</div>
+							<span class="font-mono text-[10px] uppercase tracking-widest text-amber-400 font-bold">
+								Konsultasi Rancang Bangun
+							</span>
+						</div>
+
+						<div class="space-y-2">
+							<h3 class="font-heading font-bold text-lg text-white">
+								Jadwalkan Konsultasi Teknis
+							</h3>
+							<p class="font-body text-xs text-stone-300 leading-relaxed">
+								Diskusikan rencana anggaran biaya (RAB), estimasi waktu, dan spesifikasi proyek Anda bersama tim teknis kami.
+							</p>
+						</div>
+
+						<div class="space-y-2 text-xs text-stone-300 font-body">
+							<div class="flex items-center gap-2">
+								<span class="material-symbols-outlined text-amber-400 text-[16px]">check_circle</span>
+								<span>Analisis awal kelayakan tapak gratis</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<span class="material-symbols-outlined text-amber-400 text-[16px]">check_circle</span>
+								<span>Simulasi anggaran transparan berjenjang</span>
+							</div>
+						</div>
+
+						<a
+							href={createWhatsAppUrl(`Halo CV. Skylander, saya ingin menjadwalkan konsultasi teknis untuk layanan ${service.title}.`)}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-heading text-xs font-bold uppercase tracking-wider rounded transition-colors shadow"
+						>
+							<span class="material-symbols-outlined text-[16px] leading-none">chat</span>
+							<span class="leading-none">Jadwalkan via WhatsApp</span>
+							<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+						</a>
+					</div>
+
+					<!-- Sidebar Card 3: Kunjungi Kantor Kami -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<div class="flex items-center justify-between">
+							<h3 class="font-heading font-bold text-sm text-stone-900">Kunjungi Kantor Kami</h3>
+							<span class="material-symbols-outlined text-amber-600 text-[18px]">location_on</span>
+						</div>
+
+						<div class="space-y-1">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-stone-400 font-bold block">
+								Kantor Pusat Makassar
+							</span>
+							<p class="font-body text-xs text-stone-700 font-medium leading-relaxed">
+								Jl. Goa Ria, Sudiang, Kec. Biringkanaya, Kota Makassar, Sulawesi Selatan 90552
+							</p>
+						</div>
+
+						<div class="bg-stone-50 border border-stone-200/80 rounded p-3.5 space-y-1.5 text-xs">
+							<span class="font-mono text-[10px] uppercase tracking-wider text-stone-400 font-bold block">
+								Jam Operasional Layanan
+							</span>
+							<div class="flex items-center justify-between text-stone-700 font-body">
+								<span>Senin – Sabtu</span>
+								<span class="font-mono font-bold text-amber-600">07.00 – 16.00 WITA</span>
+							</div>
+							<div class="flex items-center justify-between text-stone-500 font-body">
+								<span>Minggu &amp; Hari Libur</span>
+								<span class="font-mono text-[11px]">Libur</span>
+							</div>
+						</div>
+
+						<div class="space-y-1 pt-1">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-stone-400 font-bold block">
+								Kontak Kantor
+							</span>
+							<div class="font-mono text-xs font-bold text-stone-900">
+								<a href={`tel:${company.phone}`} class="hover:text-amber-600 transition-colors">{company.phoneFormatted}</a>
+							</div>
+							<div class="font-mono text-xs text-stone-600">
+								<a href={`mailto:${company.email}`} class="hover:text-amber-600 transition-colors">{company.email}</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Sidebar Card 4: Layanan Terkait -->
+					<div class="bg-white border border-stone-200 rounded-lg p-6 space-y-4 shadow-sm">
+						<h3 class="font-heading font-bold text-sm text-stone-900">
+							Layanan Terkait
+						</h3>
+						<div class="divide-y divide-stone-100">
+							{otherServices.map((other) => (
+								<a
+									href={`/service/${other.slug}`}
+									class="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-3 text-xs font-body text-stone-600 hover:text-amber-600 transition-colors group"
+								>
+									<span class="font-medium group-hover:translate-x-0.5 transition-transform">{other.title}</span>
+									<span class="material-symbols-outlined text-[15px] text-stone-400 group-hover:text-amber-600 shrink-0">arrow_forward</span>
+								</a>
+							))}
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

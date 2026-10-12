@@ -1,0 +1,153 @@
+---
+import { company, createWhatsAppUrl } from "@/data/company";
+import { faqs } from "@/data/faq";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: faqs.map((faq) => ({
+		"@type": "Question",
+		name: faq.question,
+		acceptedAnswer: {
+			"@type": "Answer",
+			text: faq.answer,
+		},
+	})),
+};
+---
+
+<BaseLayout
+	title="Pertanyaan Dan Jawaban Yang Sering Di Pertanyakan (FAQ) — CV. Skylander"
+	description="Pertanyaan dan jawaban yang sering diajukan mengenai layanan jasa konstruksi, jangkauan proyek, pemesanan, dan jaminan mutu CV. Skylander."
+	canonicalPath="/faq"
+	extraJsonLd={faqSchema}
+>
+	<!-- 1. EDITORIAL HEADER (Matching Stitch Subpage Style) -->
+	<section class="py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
+				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+				<span>/</span>
+				<span class="text-amber-600 font-bold">FAQ</span>
+			</div>
+
+			<div class="space-y-3 max-w-4xl pt-2">
+				<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600 font-bold">
+					<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+					<span>Pusat Informasi Klien</span>
+				</div>
+				<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
+					Pertanyaan Dan Jawaban Yang Sering Di Pertanyakan
+				</h1>
+				<p class="font-body text-base sm:text-lg text-stone-600 leading-relaxed max-w-3xl">
+					Berikut adalah rangkuman jawaban atas hal-hal yang paling sering ditanyakan oleh klien mengenai layanan konstruksi, pemesanan, dan komitmen mutu CV. Skylander.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. FAQ CONTENT -->
+	<section class="py-24 bg-white">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+				<!-- Left Column: Native Accordion List (7 cols) -->
+				<div class="lg:col-span-7 space-y-4">
+					{faqs.map((faq, index) => (
+						<details
+							class="group rounded-lg overflow-hidden bg-stone-50 border border-stone-200 open:border-stone-900 shadow-sm transition-all"
+							open={index === 0}
+						>
+							<summary class="list-none cursor-pointer py-5 px-6 flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-stone-900 group-open:bg-stone-950 group-open:text-white select-none transition-colors">
+								<span>{faq.question}</span>
+								<span class="w-8 h-8 rounded flex items-center justify-center shrink-0 bg-white text-stone-600 group-open:bg-amber-500 group-open:text-stone-950 transition-colors border border-stone-200 group-open:border-transparent">
+									<span class="material-symbols-outlined text-[18px] leading-none group-open:hidden">add</span>
+									<span class="material-symbols-outlined text-[18px] leading-none hidden group-open:inline">remove</span>
+								</span>
+							</summary>
+							<div class="px-6 py-5 text-sm text-stone-700 font-body leading-relaxed whitespace-pre-line bg-white">
+								{faq.answer}
+							</div>
+						</details>
+					))}
+				</div>
+
+				<!-- Right Column: Support & Quick Contact Card (5 cols) -->
+				<div class="lg:col-span-5 space-y-6">
+					<div class="bg-stone-50 border border-stone-200 rounded-lg overflow-hidden shadow-sm">
+						<div class="h-60 overflow-hidden relative">
+							<img
+								src="/images/stitch/stitch_03_120eda0d0c.webp"
+								alt="Tim Dukungan Teknis CV. Skylander"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+
+						<div class="p-7 space-y-6">
+							<div class="space-y-2">
+								<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+									Layanan Konsultasi
+								</span>
+								<h3 class="font-heading font-extrabold text-2xl text-stone-900 tracking-tight">
+									Masih Memiliki Pertanyaan Lain?
+								</h3>
+								<p class="font-body text-xs sm:text-sm text-stone-600 leading-relaxed">
+									Tim kami siap membantu menjawab pertanyaan teknis maupun mendiskusikan kebutuhan rencana anggaran dan pembangunan proyek Anda.
+								</p>
+							</div>
+
+							<!-- Clean Left-Aligned Contact List with Icons -->
+							<div class="space-y-3.5 font-body">
+								<div class="flex items-center gap-3.5">
+									<div class="w-9 h-9 rounded bg-stone-950 text-amber-400 flex items-center justify-center shrink-0">
+										<span class="material-symbols-outlined text-[18px]">call</span>
+									</div>
+									<div>
+										<span class="text-stone-400 font-mono text-[10px] uppercase tracking-wider block">Telepon</span>
+										<a href={`tel:${company.phone}`} class="font-heading font-bold text-sm text-stone-900 hover:text-amber-600 transition-colors">
+											{company.phoneFormatted}
+										</a>
+									</div>
+								</div>
+
+								<div class="flex items-center gap-3.5">
+									<div class="w-9 h-9 rounded bg-stone-950 text-amber-400 flex items-center justify-center shrink-0">
+										<span class="material-symbols-outlined text-[18px]">mail</span>
+									</div>
+									<div>
+										<span class="text-stone-400 font-mono text-[10px] uppercase tracking-wider block">Email</span>
+										<a href={`mailto:${company.email}`} class="font-heading font-bold text-sm text-stone-900 hover:text-amber-600 transition-colors break-all">
+											{company.email}
+										</a>
+									</div>
+								</div>
+
+								<div class="flex items-center gap-3.5">
+									<div class="w-9 h-9 rounded bg-stone-950 text-amber-400 flex items-center justify-center shrink-0">
+										<span class="material-symbols-outlined text-[18px]">schedule</span>
+									</div>
+									<div>
+										<span class="text-stone-400 font-mono text-[10px] uppercase tracking-wider block">Jam Operasional</span>
+										<span class="font-heading font-bold text-sm text-stone-900">
+											Senin - Sabtu (07.00 - 16.00)
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<a
+								href={createWhatsAppUrl("Halo CV. Skylander, saya ingin bertanya mengenai layanan konstruksi.")}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-stone-900 hover:bg-amber-500 text-white hover:text-stone-950 font-heading text-xs uppercase tracking-wider font-bold rounded transition-colors shadow-sm"
+							>
+								<span class="leading-none">Hubungi Tim Kami via WhatsApp</span>
+								<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,289 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const missions = [
+	{
+		number: "01",
+		title: "KEPUASAN KLIEN",
+		desc: "Memberikan layanan konstruksi yang memuaskan untuk para pelanggan.",
+		tag: "FOKUS LAYANAN",
+	},
+	{
+		number: "02",
+		title: "INTEGRITAS & ETIKA",
+		desc: "Menerapkan praktik bisnis yang etis dan bertanggung jawab dalam semua aspek operasional.",
+		tag: "TATA KELOLA",
+	},
+	{
+		number: "03",
+		title: "KEBERLANJUTAN LINGKUNGAN",
+		desc: "Membangun infrastruktur berkelanjutan, ramah lingkungan, dan berdampak positif bagi masyarakat.",
+		tag: "TANGGUNG JAWAB EKOLOGIS",
+	},
+	{
+		number: "04",
+		title: "EFISIENSI & KUALITAS",
+		desc: "Meningkatkan efisiensi, kualitas, dan kecepatan proyek sesuai jadwal, anggaran, dan spesifikasi teknis.",
+		tag: "PRESISI MANAJERIAL",
+	},
+	{
+		number: "05",
+		title: "KEMITRAAN SINERGIS",
+		desc: "Membangun hubungan kuat dengan mitra bisnis dan pemasok berdasarkan integritas serta kepercayaan.",
+		tag: "JARINGAN RANTAI PASOK",
+	},
+	{
+		number: "06",
+		title: "KEPATUHAN & REPUTASI",
+		desc: "Mematuhi peraturan dan standar hukum yang berlaku serta menjaga reputasi perusahaan konstruksi yang solid.",
+		tag: "STANDAR LEGALITAS",
+	},
+];
+
+const qualityServices = [
+	{
+		icon: "engineering",
+		title: "Profesional",
+		desc: "Tim kami berpengalaman dan terlatih dengan baik dalam bidang konstruksi.",
+	},
+	{
+		icon: "verified",
+		title: "Bahan Berkualitas",
+		desc: "Hanya menggunakan bahan yang berkualitas tinggi dan sesuai standar yang ditentukan.",
+	},
+	{
+		icon: "fact_check",
+		title: "Pengawasan Ketat",
+		desc: "Kami selalu memastikan bahwa pekerjaan dilakukan sesuai dengan rencana.",
+	},
+	{
+		icon: "forum",
+		title: "Responsif",
+		desc: "Kami siap memberikan saran yang berharga, dan menjaga komunikasi terbuka sepanjang proyek.",
+	},
+	{
+		icon: "eco",
+		title: "Ramah Lingkungan",
+		desc: "Memprioritaskan penggunaan bahan ramah lingkungan & mengurangi limbah.",
+	},
+	{
+		icon: "lightbulb",
+		title: "Inovasi",
+		desc: "Selalu berinovasi dalam metode konstruksi dan menggunakan teknologi terkini.",
+	},
+];
+---
+
+<BaseLayout
+	title="Tentang Kami (Profil, Visi, Misi & Komitmen Mutu) — CV. Skylander"
+	description="Dedikasi Rekayasa & Arsitektur Berkelanjutan. Profil perusahaan, visi, misi, dan komitmen mutu CV. Skylander di Makassar, Papua, dan Toraja sejak 2011."
+	canonicalPath="/about-us"
+>
+	<!-- 1. HERO HEADER (Exact Google Stitch Layout from Screencast) -->
+	<section class="py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
+				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+				<span>/</span>
+				<span class="text-amber-600 font-bold">Tentang Kami</span>
+			</div>
+
+			<div class="space-y-3 max-w-4xl pt-2">
+				<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600 font-bold">
+					<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+					<span>Profil Korporasi &amp; Praktik Atelier</span>
+				</div>
+				<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
+					Dedikasi Rekayasa &amp; Arsitektur Berkelanjutan
+				</h1>
+				<p class="font-body text-base sm:text-lg text-stone-600 leading-relaxed max-w-3xl">
+					Menghadirkan standar rancang-bangun terpadu di seluruh lanskap kepulauan Indonesia sejak 2011, berpijak pada integritas struktural, kejujuran material, dan ketelitian pengerjaan kelas utama.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. PROFIL & KOMITMEN CV SKYLANDER (Exact Split Grid from Screencast) -->
+	<section class="py-20 bg-white border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+				<!-- Left Column: Logo Box + Architectural Photo Card -->
+				<div class="lg:col-span-5 space-y-6">
+					<div class="bg-stone-50 border border-stone-200 rounded-lg p-8 sm:p-10 flex items-center justify-center">
+						<img
+							src="/images/original/skylander.co_.id_.webp"
+							alt="Logo CV. Skylander Construction Specialist"
+							class="w-full max-w-[280px] h-auto object-contain"
+						/>
+					</div>
+
+					<div class="group rounded-lg overflow-hidden border border-stone-200 bg-stone-950 shadow-sm">
+						<div class="relative h-72 sm:h-80 overflow-hidden">
+							<img
+								src="/images/stitch/stitch_02_4631cb0af0.webp"
+								alt="Arsitektur Hunian Tropis Kontemporer CV. Skylander"
+								class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent"></div>
+						</div>
+						<div class="p-4 bg-stone-900 text-stone-400 font-mono text-[11px] flex items-center justify-between border-t border-stone-800">
+							<span class="uppercase">Arsitektur Hunian Tropis Kontemporer</span>
+							<span class="text-amber-400 font-bold">Portofolio Terpilih</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Profile Story, Visi Box, and 3 Stats -->
+				<div class="lg:col-span-7 space-y-8">
+					<div class="space-y-4">
+						<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+							Fondasi &amp; Komitmen
+						</span>
+						<h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
+							Profil &amp; Komitmen CV Skylander
+						</h2>
+						<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed">
+							Berdiri sejak tahun 2011, <strong class="font-semibold text-stone-900">CV Skylander (PT Skylander Solusindo)</strong> berdedikasi sebagai penyedia konstruksi berkualitas tinggi, inovatif, dan terpercaya di Indonesia Timur maupun kancah nasional. Kami memadukan pendekatan rekayasa sipil mutakhir dengan kepekaan kontekstual terhadap tapak, material lokal, dan ketahanan iklim tropis.
+						</p>
+						<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed">
+							Setiap struktur yang kami dirikan didasari oleh komitmen terhadap transparansi manajerial, keselamatan kerja tanpa kompromi, dan jaminan mutu yang terukur di setiap tahapan realisasi proyek.
+						</p>
+					</div>
+
+					<!-- Visi Perusahaan Box (Clean light-stone container like Stitch canvas) -->
+					<div class="bg-stone-50 border border-stone-200/90 rounded-lg p-6 sm:p-7 space-y-2">
+						<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-600 font-bold block">
+							Visi Perusahaan
+						</span>
+						<p class="font-heading text-base sm:text-lg text-stone-900 font-bold italic leading-relaxed">
+							“Menjadi penyedia konstruksi terbaik yang memberikan solusi inovatif dan berkualitas dalam setiap proyek, serta menjadi mitra pilihan untuk memenuhi kebutuhan infrastruktur yang berkelanjutan.”
+						</p>
+					</div>
+
+					<!-- 3 Metric Numbers (Title Case, No top border, uniform color) -->
+					<div class="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
+						<div class="space-y-1">
+							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+								<span>15+</span>
+								<span>Tahun</span>
+							</div>
+							<span class="font-heading text-xs font-bold text-stone-900 block">Tahun Dedikasi</span>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">Rekayasa struktural dan komitmen karya.</p>
+						</div>
+
+						<div class="space-y-1">
+							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+								<span>100+</span>
+								<span>Karya</span>
+							</div>
+							<span class="font-heading text-xs font-bold text-stone-900 block">Karya Proyek</span>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">Diselesaikan tepat waktu &amp; presisi spesifikasi.</p>
+						</div>
+
+						<div class="space-y-1">
+							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+								<span>10</span>
+								<span>Tahun</span>
+							</div>
+							<span class="font-heading text-xs font-bold text-stone-900 block">Garansi Struktur</span>
+							<p class="font-body text-xs text-stone-500 leading-relaxed">Komitmen integritas jangka panjang klien.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. MISI PERUSAHAAN (6 Clean Architectural Cards from Screencast) -->
+	<section class="py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-12">
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div class="space-y-2">
+					<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+						Prinsip Pelaksanaan
+					</span>
+					<h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-stone-900 tracking-tight">
+						Misi Perusahaan
+					</h2>
+				</div>
+				<p class="font-body text-sm text-stone-600 max-w-md leading-relaxed">
+					Enam pedoman operasional yang melandasi tata kelola proyek kami dari tahap pra-konstruksi hingga serah terima kunci.
+				</p>
+			</div>
+
+			<!-- 6 Cards Grid (3 Columns x 2 Rows) -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+				{missions.map((m) => (
+					<div class="bg-white border border-stone-200 rounded-lg p-7 shadow-sm flex flex-col justify-between space-y-6 hover:border-amber-500/60 transition-colors">
+						<div class="space-y-3">
+							<span class="font-mono text-xs uppercase tracking-widest text-amber-600 font-bold block">
+								{m.number} • {m.title}
+							</span>
+							<p class="font-body text-sm text-stone-700 leading-relaxed">
+								{m.desc}
+							</p>
+						</div>
+						<div class="pt-2 flex items-center justify-between">
+							<span class="font-mono text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
+								{m.tag}
+							</span>
+							<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<!-- 2 Action Buttons (Legalitas Perusahaan & Hubungi Kami - Image #33) -->
+			<div class="flex flex-wrap items-center gap-4 pt-2">
+				<a
+					href="/legalitas-perusahaan"
+					class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-stone-900 hover:bg-amber-500 text-white hover:text-stone-950 transition-colors duration-200 font-heading text-xs uppercase tracking-wider font-bold rounded shadow-sm"
+				>
+					<span class="leading-none">Legalitas Perusahaan</span>
+					<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+				</a>
+				<a
+					href="/contact"
+					class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-500 hover:bg-amber-400 text-stone-950 transition-colors duration-200 font-heading text-xs uppercase tracking-wider font-bold rounded shadow-sm"
+				>
+					<span class="leading-none">Hubungi Kami</span>
+					<span class="material-symbols-outlined text-[16px] leading-none">arrow_forward</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. MENGHADIRKAN LAYANAN BERKUALITAS (6 Borderless Minimalist Items from Screencast) -->
+	<section class="py-20 bg-white">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-14">
+			<div class="space-y-2 max-w-3xl">
+				<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
+					Kualitas Tanpa Kompromi
+				</span>
+				<h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-stone-900 tracking-tight">
+					Menghadirkan Layanan Berkualitas
+				</h2>
+				<p class="font-body text-sm sm:text-base text-stone-600 leading-relaxed">
+					Fondasi operasional kami mengombinasikan keahlian ketukangan murni dengan standar pengujian struktural modern.
+				</p>
+			</div>
+
+			<!-- 6 Features (3 Columns x 2 Rows) -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+				{qualityServices.map((item) => (
+					<div class="space-y-3">
+						<div class="w-10 h-10 rounded bg-stone-100 text-stone-900 flex items-center justify-center">
+							<span class="material-symbols-outlined text-[20px]">{item.icon}</span>
+						</div>
+						<h3 class="font-heading font-bold text-lg text-stone-900">
+							{item.title}
+						</h3>
+						<p class="font-body text-xs sm:text-sm text-stone-600 leading-relaxed">
+							{item.desc}
+						</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</BaseLayout>

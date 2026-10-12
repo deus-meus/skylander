@@ -1,0 +1,117 @@
+---
+import { legalityDocuments } from "@/data/legality";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const standardDocs = legalityDocuments.filter((d) => d.inStandardPage);
+---
+
+<BaseLayout
+	title="Legalitas Perusahaan & Sertifikasi Resmi — CV. Skylander"
+	description="Kami sangat peduli dengan kepatuhan hukum dan transparansi dalam menjalankan bisnis kami. Informasi penting mengenai legalitas resmi CV. Skylander."
+	canonicalPath="/legalitas-perusahaan"
+>
+	<!-- 1. EDITORIAL HEADER -->
+	<section class="py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
+				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+				<span>/</span>
+				<span class="text-amber-600 font-bold">Legalitas Perusahaan</span>
+			</div>
+
+			<div class="space-y-3 max-w-4xl pt-2">
+				<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600 font-bold">
+					<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+					<span>Kepatuhan Hukum &amp; Transparansi</span>
+				</div>
+				<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
+					Legalitas CV Skylander
+				</h1>
+				<p class="font-body text-base sm:text-lg text-stone-600 leading-relaxed max-w-3xl">
+					Kami sangat peduli dengan kepatuhan hukum dan transparansi dalam menjalankan bisnis kami. Kami percaya bahwa menjaga legalitas perusahaan adalah fondasi yang kuat untuk membangun kepercayaan dengan pelanggan, mitra, dan pihak terkait lainnya. Berikut ini adalah beberapa informasi penting mengenai legalitas perusahaan kami:
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. GALERI DOKUMEN LEGALITAS -->
+	<section class="py-20 bg-white">
+		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+			<!-- Standard View (From Navbar Menu: 10 Clean Document Frames like Original Website + Hover Full Size) -->
+			<div id="legality-standard-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+				{standardDocs.map((doc) => (
+					<a
+						href={doc.imageUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group bg-stone-50 border border-stone-200 rounded-lg p-5 shadow-sm hover:border-amber-500 transition-all flex items-center justify-center overflow-hidden relative"
+					>
+						<img
+							src={doc.imageUrl}
+							alt={doc.title}
+							loading="lazy"
+							class="w-full h-auto object-contain shadow-sm transition-transform duration-500 group-hover:scale-[1.02]"
+						/>
+						<div class="absolute inset-0 bg-stone-950/0 group-hover:bg-stone-950/20 transition-colors flex items-center justify-center">
+							<span class="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-stone-950 text-amber-400 font-heading text-xs font-bold uppercase tracking-wider rounded shadow-lg inline-flex items-center justify-center gap-1.5">
+								<span class="material-symbols-outlined text-[16px] leading-none">open_in_new</span>
+								<span class="leading-none">Lihat Ukuran Penuh</span>
+							</span>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<!-- Full Catalog View (When Opened from "LIHAT BERKAS LEGALITAS" Button: All 12 Documents with Detailed Descriptions) -->
+			<div id="legality-lengkap-grid" class="hidden grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+				{legalityDocuments.map((doc) => (
+					<a
+						href={doc.imageUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group bg-stone-50 border border-stone-200 rounded-lg overflow-hidden shadow-sm hover:border-amber-500 transition-all flex flex-col justify-between"
+					>
+						<div class="relative bg-stone-100/80 p-6 flex items-center justify-center overflow-hidden">
+							<img
+								src={doc.imageUrl}
+								alt={doc.title}
+								loading="lazy"
+								class="w-full h-auto object-contain shadow-sm transition-transform duration-500 group-hover:scale-[1.02]"
+							/>
+							<div class="absolute inset-0 bg-stone-950/0 group-hover:bg-stone-950/20 transition-colors flex items-center justify-center">
+								<span class="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-stone-950 text-amber-400 font-heading text-xs font-bold uppercase tracking-wider rounded shadow-lg inline-flex items-center justify-center gap-1.5">
+									<span class="material-symbols-outlined text-[16px] leading-none">open_in_new</span>
+									<span class="leading-none">Lihat Ukuran Penuh</span>
+								</span>
+							</div>
+						</div>
+						<div class="p-6 space-y-1.5 bg-white">
+							<div class="font-mono text-[11px] text-amber-600 font-bold uppercase tracking-wider">{doc.code} • {doc.issuer}</div>
+							<h2 class="font-heading font-bold text-base sm:text-lg text-stone-900 group-hover:text-amber-600 transition-colors">
+								{doc.title}
+							</h2>
+							<p class="font-body text-xs sm:text-sm text-stone-600 leading-relaxed">{doc.description}</p>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<script>
+		function checkFullLegalityMode() {
+			const params = new URLSearchParams(window.location.search);
+			const isFullCatalog = params.get("mode") === "lengkap" || window.location.hash === "#lengkap";
+			const standardGrid = document.getElementById("legality-standard-grid");
+			const lengkapGrid = document.getElementById("legality-lengkap-grid");
+
+			if (isFullCatalog && standardGrid && lengkapGrid) {
+				standardGrid.classList.add("hidden");
+				lengkapGrid.classList.remove("hidden");
+				lengkapGrid.classList.add("grid");
+			}
+		}
+
+		checkFullLegalityMode();
+	</script>
+</BaseLayout>

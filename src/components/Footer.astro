@@ -1,0 +1,167 @@
+---
+import { company, createWhatsAppUrl } from "@/data/company";
+---
+
+<!-- 8. PRE-FOOTER & REGIONAL HUBS (Dark Contrast Container #1C1917) -->
+<section class="pt-24 pb-12 bg-stone-950 text-white border-t border-stone-800" id="contact">
+	<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+		<!-- Section Header & CTA -->
+		<div class="text-center max-w-3xl mx-auto space-y-6 pb-20 border-stone-800/80">
+			<span class="inline-block px-3.5 py-1 bg-stone-900 border border-stone-800 text-amber-500 font-mono text-xs uppercase tracking-widest rounded">
+				Konsultasi Desain &amp; Perjanjian Kontrak Notaris
+			</span>
+			<h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+				Wujudkan Visi Arsitektural Bersama Tim Insinyur Kami.
+			</h2>
+			<p class="font-body text-base text-stone-300 leading-relaxed max-w-xl mx-auto">
+				Kirimkan berkas denah atau kerangka acuan kerja (KAK) Anda untuk dianalisis kelayakan struktural dan estimasi RAB transparan.
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+				<a
+					class="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-heading text-xs uppercase tracking-wider font-bold rounded transition-colors shadow-lg flex items-center gap-2"
+					href={createWhatsAppUrl("Halo Tim Insinyur PT Skylander, saya ingin mengirimkan berkas denah/KAK untuk dianalisis.")}
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<span class="material-symbols-outlined text-[18px] leading-none">chat</span>
+					<span class="leading-none">Kirim Berkas via WhatsApp</span>
+				</a>
+				<a
+					class="px-6 py-4 bg-stone-900 hover:bg-stone-800 text-white font-heading text-xs uppercase tracking-wider font-semibold rounded border border-stone-800 transition-colors flex items-center gap-2"
+					href={`tel:${company.phone}`}
+				>
+					<span class="material-symbols-outlined text-[18px] text-amber-500 leading-none">call</span>
+					<span class="leading-none">Hotline Konsultasi Langsung</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- Corporate Footer -->
+		<footer class="pt-16 pb-12 border-t border-stone-800/80">
+			<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+				<!-- Left Brand Column -->
+				<div class="lg:max-w-xs space-y-5 shrink-0">
+					<a href="/" class="inline-block">
+						<img
+							src="/images/original/skylander.co_.id_.webp"
+							alt="Logo CV. Skylander Construction Specialist"
+							class="h-12 w-auto object-contain"
+						/>
+					</a>
+					<p class="font-body text-xs text-stone-400 leading-relaxed">
+						Firma kontraktor EPC terpadu, studio rancang arsitektur, dan rekayasa struktur bersertifikasi nasional. Mengedepankan kalkulasi presisi milimeter dan estetika monolitik abadi sejak 2011.
+					</p>
+					<div class="flex flex-wrap items-center gap-2 pt-1">
+						<span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-900 border border-stone-800 text-stone-300 font-mono text-[11px] rounded">
+							<span class="material-symbols-outlined text-amber-500 text-[14px]">verified</span> LPJK
+						</span>
+						<span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-900 border border-stone-800 text-stone-300 font-mono text-[11px] rounded">
+							<span class="material-symbols-outlined text-amber-500 text-[14px]">architecture</span> ISO 19650
+						</span>
+						<span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-900 border border-stone-800 text-stone-300 font-mono text-[11px] rounded">
+							<span class="material-symbols-outlined text-amber-500 text-[14px]">security</span> K3 SMK3
+						</span>
+					</div>
+				</div>
+
+				<!-- Right Columns: Flex Justify-Between so Visual Gaps Between Text Blocks Are 100% Equal -->
+				<div class="flex-1 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-10 lg:pl-8">
+					<!-- Col 1: Layanan Konstruksi -->
+					<div class="space-y-4 shrink-0">
+						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+							Layanan Konstruksi
+						</h4>
+						<ul class="space-y-2.5 font-body text-xs text-stone-400">
+							<li><a href="/service/konstruksi-gedung-perkantoran" class="hover:text-amber-400 transition-colors block">Konstruksi Gedung Perkantoran</a></li>
+							<li><a href="/service/konstruksi-bangunan-sipil" class="hover:text-amber-400 transition-colors block">Konstruksi Bangunan Sipil</a></li>
+							<li><a href="/service/konstruksi-bangunan-hunian" class="hover:text-amber-400 transition-colors block">Konstruksi Bangunan Hunian</a></li>
+							<li><a href="/service/konstruksi-prasarana-sumber-daya-air" class="hover:text-amber-400 transition-colors block">Konstruksi Prasarana Sumber Daya Air</a></li>
+							<li><a href="/service/jasa-renovasi" class="hover:text-amber-400 transition-colors block">Jasa Renovasi</a></li>
+							<li><a href="/service/jasa-desain-arsitektur" class="hover:text-amber-400 transition-colors block">Jasa Desain Arsitektur</a></li>
+							<li><a href="/service/jasa-lanskap" class="hover:text-amber-400 transition-colors block">Pekerjaan Landscape &amp; Taman</a></li>
+						</ul>
+					</div>
+
+					<!-- Col 2: Perusahaan -->
+					<div class="space-y-4 shrink-0">
+						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+							Perusahaan
+						</h4>
+						<ul class="space-y-2.5 font-body text-xs text-stone-400">
+							<li><a href="/about-us" class="hover:text-amber-400 transition-colors block">Tentang Kami</a></li>
+							<li><a href="/legalitas-perusahaan" class="hover:text-amber-400 transition-colors block">Legalitas Perusahaan</a></li>
+							<li><a href="/faq" class="hover:text-amber-400 transition-colors block">FAQ</a></li>
+							<li><a href="/contact" class="hover:text-amber-400 transition-colors block">Kontak</a></li>
+						</ul>
+					</div>
+
+					<!-- Col 3: Jaringan Kantor -->
+					<div class="space-y-4 shrink-0 max-w-[230px]">
+						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+							Jaringan Kantor
+						</h4>
+						<div class="space-y-3.5 font-body text-xs text-stone-400">
+							<div>
+								<span class="font-heading text-[11px] font-bold uppercase tracking-wider text-white block">Kantor Pusat Makassar</span>
+								<p class="text-stone-400 mt-0.5 leading-relaxed">Jl. Goa Ria, Sudiang, Biringkanaya, Makassar (90552)</p>
+							</div>
+							<div>
+								<span class="font-heading text-[11px] font-bold uppercase tracking-wider text-white block">Cabang Jayapura</span>
+								<p class="text-stone-400 mt-0.5 leading-relaxed">Jl. Alternatif, Kota Jayapura, Papua (99351)</p>
+							</div>
+							<div>
+								<span class="font-heading text-[11px] font-bold uppercase tracking-wider text-white block">Cabang Toraja</span>
+								<p class="text-stone-400 mt-0.5 leading-relaxed">Kec. Makale, Tana Toraja (91817)</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Col 4: Kontak Pusat & Jam Kerja -->
+					<div class="space-y-6 shrink-0">
+						<div class="space-y-3">
+							<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+								Kontak Pusat
+							</h4>
+							<div class="space-y-2 font-body text-xs text-stone-300">
+								<div>
+									<span class="text-stone-400">Tel : </span>
+									<a href={`tel:${company.phone}`} class="font-mono text-amber-400 hover:text-amber-300 transition-colors">082342270000</a>
+								</div>
+								<div>
+									<span class="text-stone-400">Email : </span>
+									<a href={`mailto:${company.email}`} class="font-mono text-amber-400 hover:text-amber-300 transition-colors">{company.email}</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="space-y-2">
+							<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+								Jam Kerja
+							</h4>
+							<div class="text-xs font-mono text-stone-400 leading-relaxed">
+								Senin - Sabtu: 07.00 - 16.00<br />
+								Minggu: Libur
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Bottom Copyright -->
+		<div class="pt-8 mt-4 border-t border-stone-800/80 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-stone-500">
+			<div class="flex flex-wrap items-center gap-2 text-center md:text-left">
+				<span class="text-stone-400">© {new Date().getFullYear()} CV. Skylander Indonesia. Hak Cipta Dilindungi Undang-Undang.</span>
+			</div>
+			<div class="flex flex-wrap items-center justify-center gap-6">
+				<a href="/legalitas-perusahaan" class="hover:text-stone-300 transition-colors">Legalitas Perusahaan</a>
+				<a href="/about-us" class="hover:text-stone-300 transition-colors">Tentang Kami</a>
+				<a href="/faq" class="hover:text-stone-300 transition-colors">FAQ &amp; Standar K3</a>
+				<a href="#" class="hover:text-amber-500 text-stone-400 transition-colors inline-flex items-center gap-1 font-semibold">
+					<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+					<span>Kembali ke Atas</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
