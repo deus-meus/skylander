@@ -80,8 +80,8 @@ const qualityServices = [
 	canonicalPath="/about-us"
 >
 	<!-- 1. HERO HEADER (Exact Google Stitch Layout from Screencast) -->
-	<section class="py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+	<section class="py-12 sm:py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 space-y-5 sm:space-y-6">
 			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
 				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
 				<span>/</span>
@@ -104,24 +104,12 @@ const qualityServices = [
 	</section>
 
 	<!-- 2. PROFIL & KOMITMEN CV SKYLANDER (Logo Emblem Top-Aligned with Profile Heading) -->
-	<section class="py-20 bg-white border-b border-stone-200">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-				<!-- Left Column: Official Gold Arch Emblem Logo (Top-Aligned with Right Column - Image #67 Fix) -->
-				<div class="lg:col-span-5 flex items-start justify-center">
-					<img
-						src="/images/original/logo-emblem-tight.webp"
-						alt="Logo CV. Skylander Construction Specialist"
-						width="512"
-						height="288"
-						decoding="async"
-						class="w-full max-w-[380px] h-auto object-contain"
-					/>
-				</div>
-
-				<!-- Right Column: Profile Story, Visi Box, and 3 Stats -->
-				<div class="lg:col-span-7 space-y-8">
-					<div class="space-y-4">
+	<section class="py-14 sm:py-20 bg-white border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+				<!-- Right Column (mobile: order-1 = tampil pertama) -->
+				<div class="lg:col-span-7 order-1 lg:order-2 space-y-6 sm:space-y-8">
+					<div class="space-y-3 sm:space-y-4">
 						<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
 							Fondasi &amp; Komitmen
 						</span>
@@ -136,53 +124,64 @@ const qualityServices = [
 						</p>
 					</div>
 
-					<!-- Visi Perusahaan Box (Clean light-stone container like Stitch canvas) -->
-					<div class="bg-stone-50 border border-stone-200/90 rounded-lg p-6 sm:p-7 space-y-2">
+					<!-- Visi Perusahaan Box -->
+					<div class="bg-stone-50 border border-stone-200/90 rounded-lg p-5 sm:p-7 space-y-2">
 						<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-600 font-bold block">
 							Visi Perusahaan
 						</span>
-						<p class="font-heading text-base sm:text-lg text-stone-900 font-bold italic leading-relaxed">
-							“Menjadi penyedia konstruksi terbaik yang memberikan solusi inovatif dan berkualitas dalam setiap proyek, serta menjadi mitra pilihan untuk memenuhi kebutuhan infrastruktur yang berkelanjutan.”
+						<p class="font-heading text-sm sm:text-base lg:text-lg text-stone-900 font-bold italic leading-relaxed">
+							"Menjadi penyedia konstruksi terbaik yang memberikan solusi inovatif dan berkualitas dalam setiap proyek, serta menjadi mitra pilihan untuk memenuhi kebutuhan infrastruktur yang berkelanjutan."
 						</p>
 					</div>
 
-					<!-- 3 Metric Numbers (Title Case, No top border, uniform color) -->
-					<div class="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
+					<!-- 3 Metric Numbers -->
+					<div class="pt-2 grid grid-cols-3 gap-4 sm:gap-6">
 						<div class="space-y-1">
-							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+							<div class="flex items-baseline gap-1 font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
 								<span>15+</span>
-								<span>Tahun</span>
+								<span>Thn</span>
 							</div>
-							<span class="font-heading text-xs font-bold text-stone-900 block">Tahun Dedikasi</span>
-							<p class="font-body text-xs text-stone-500 leading-relaxed">Rekayasa struktural dan komitmen karya.</p>
+							<span class="font-heading text-[11px] sm:text-xs font-bold text-stone-900 block">Tahun Dedikasi</span>
+							<p class="hidden sm:block font-body text-xs text-stone-500 leading-relaxed">Rekayasa struktural dan komitmen karya.</p>
 						</div>
 
 						<div class="space-y-1">
-							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+							<div class="flex items-baseline gap-1 font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
 								<span>100+</span>
-								<span>Karya</span>
 							</div>
-							<span class="font-heading text-xs font-bold text-stone-900 block">Karya Proyek</span>
-							<p class="font-body text-xs text-stone-500 leading-relaxed">Diselesaikan tepat waktu &amp; presisi spesifikasi.</p>
+							<span class="font-heading text-[11px] sm:text-xs font-bold text-stone-900 block">Karya Proyek</span>
+							<p class="hidden sm:block font-body text-xs text-stone-500 leading-relaxed">Diselesaikan tepat waktu &amp; presisi spesifikasi.</p>
 						</div>
 
 						<div class="space-y-1">
-							<div class="flex items-baseline gap-1.5 font-heading text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
+							<div class="flex items-baseline gap-1 font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold text-stone-900 tracking-tight">
 								<span>10</span>
-								<span>Tahun</span>
+								<span>Thn</span>
 							</div>
-							<span class="font-heading text-xs font-bold text-stone-900 block">Garansi Struktur</span>
-							<p class="font-body text-xs text-stone-500 leading-relaxed">Komitmen integritas jangka panjang klien.</p>
+							<span class="font-heading text-[11px] sm:text-xs font-bold text-stone-900 block">Garansi Struktur</span>
+							<p class="hidden sm:block font-body text-xs text-stone-500 leading-relaxed">Komitmen integritas jangka panjang klien.</p>
 						</div>
 					</div>
+				</div>
+
+				<!-- Left Column: Logo (mobile: order-2 = tampil bawah, lebih kecil) -->
+				<div class="lg:col-span-5 order-2 lg:order-1 flex items-start justify-center lg:justify-center">
+					<img
+						src="/images/original/logo-emblem-tight.webp"
+						alt="Logo CV. Skylander Construction Specialist"
+						width="512"
+						height="288"
+						decoding="async"
+						class="w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[380px] h-auto object-contain"
+					/>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- 3. MISI PERUSAHAAN (6 Clean Architectural Cards from Screencast) -->
-	<section class="py-20 bg-stone-50 border-b border-stone-200">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-12">
+	<section class="py-14 sm:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 space-y-10 sm:space-y-12">
 			<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
 				<div class="space-y-2">
 					<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
@@ -240,8 +239,8 @@ const qualityServices = [
 	</section>
 
 	<!-- 4. MENGHADIRKAN LAYANAN BERKUALITAS (6 Borderless Minimalist Items from Screencast) -->
-	<section class="py-20 bg-white">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-14">
+	<section class="py-14 sm:py-20 bg-white">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 space-y-10 sm:space-y-14">
 			<div class="space-y-2 max-w-3xl">
 				<span class="font-heading text-xs uppercase tracking-[0.2em] text-amber-500 font-bold block">
 					Kualitas Tanpa Kompromi

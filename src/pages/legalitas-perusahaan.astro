@@ -11,8 +11,8 @@ const standardDocs = legalityDocuments.filter((d) => d.inStandardPage);
 	canonicalPath="/legalitas-perusahaan"
 >
 	<!-- 1. EDITORIAL HEADER -->
-	<section class="py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12 space-y-6">
+	<section class="py-12 sm:py-16 lg:py-20 bg-stone-50 border-b border-stone-200">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 space-y-5 sm:space-y-6">
 			<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-stone-500">
 				<a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
 				<span>/</span>
@@ -24,10 +24,10 @@ const standardDocs = legalityDocuments.filter((d) => d.inStandardPage);
 					<span class="w-2 h-2 rounded-full bg-amber-500"></span>
 					<span>Kepatuhan Hukum &amp; Transparansi</span>
 				</div>
-				<h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
+				<h1 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[52px] text-stone-900 tracking-tight leading-[1.1]">
 					Legalitas CV Skylander
 				</h1>
-				<p class="font-body text-base sm:text-lg text-stone-600 leading-relaxed max-w-3xl">
+				<p class="font-body text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed max-w-3xl">
 					Kami sangat peduli dengan kepatuhan hukum dan transparansi dalam menjalankan bisnis kami. Kami percaya bahwa menjaga legalitas perusahaan adalah fondasi yang kuat untuk membangun kepercayaan dengan pelanggan, mitra, dan pihak terkait lainnya. Berikut ini adalah beberapa informasi penting mengenai legalitas perusahaan kami:
 				</p>
 			</div>
@@ -35,8 +35,8 @@ const standardDocs = legalityDocuments.filter((d) => d.inStandardPage);
 	</section>
 
 	<!-- 2. GALERI DOKUMEN LEGALITAS -->
-	<section class="py-20 bg-white">
-		<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+	<section class="py-14 sm:py-20 bg-white">
+		<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
 			<!-- Standard View (From Navbar Menu: 10 Clean Document Frames like Original Website + Hover Full Size) -->
 			<div id="legality-standard-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 				{standardDocs.map((doc) => (
