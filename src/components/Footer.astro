@@ -67,7 +67,7 @@ import { company, createWhatsAppUrl } from "@/data/company";
 				<!-- Right Columns: 2-col grid on mobile, flex-row on desktop -->
 				<div class="flex-1 grid grid-cols-1 lg:flex lg:flex-row lg:items-start lg:justify-between gap-8 lg:pl-8">
 					<!-- Col 1: Layanan Konstruksi -->
-					<div class="space-y-3 sm:space-y-4 lg:order-1">
+					<div class="space-y-3 sm:space-y-4">
 						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
 							Layanan Konstruksi
 						</h4>
@@ -82,8 +82,21 @@ import { company, createWhatsAppUrl } from "@/data/company";
 						</ul>
 					</div>
 
+					<!-- Col 2: Perusahaan -->
+					<div class="space-y-3 sm:space-y-4 shrink-0">
+						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
+							Perusahaan
+						</h4>
+						<ul class="space-y-2 sm:space-y-2.5 font-body text-xs text-stone-400">
+							<li><a href="/about-us" class="hover:text-amber-400 transition-colors block">Tentang Kami</a></li>
+							<li><a href="/legalitas-perusahaan" class="hover:text-amber-400 transition-colors block">Legalitas Perusahaan</a></li>
+							<li><a href="/faq" class="hover:text-amber-400 transition-colors block">FAQ</a></li>
+							<li><a href="/contact" class="hover:text-amber-400 transition-colors block">Kontak</a></li>
+						</ul>
+					</div>
+
 					<!-- Col 3: Jaringan Kantor -->
-					<div class="space-y-3 sm:space-y-4 shrink-0 lg:order-3">
+					<div class="space-y-3 sm:space-y-4 shrink-0">
 						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
 							Jaringan Kantor
 						</h4>
@@ -103,21 +116,8 @@ import { company, createWhatsAppUrl } from "@/data/company";
 						</div>
 					</div>
 
-					<!-- Col 2: Perusahaan -->
-					<div class="space-y-3 sm:space-y-4 shrink-0 lg:order-2">
-						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
-							Perusahaan
-						</h4>
-						<ul class="space-y-2 sm:space-y-2.5 font-body text-xs text-stone-400">
-							<li><a href="/about-us" class="hover:text-amber-400 transition-colors block">Tentang Kami</a></li>
-							<li><a href="/legalitas-perusahaan" class="hover:text-amber-400 transition-colors block">Legalitas Perusahaan</a></li>
-							<li><a href="/faq" class="hover:text-amber-400 transition-colors block">FAQ</a></li>
-							<li><a href="/contact" class="hover:text-amber-400 transition-colors block">Kontak</a></li>
-						</ul>
-					</div>
-
 					<!-- Col 4: Kontak Pusat & Jam Kerja -->
-					<div class="space-y-5 shrink-0 lg:order-4">
+					<div class="space-y-5 shrink-0">
 						<div class="space-y-3">
 							<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
 								Kontak Pusat
