@@ -113,10 +113,27 @@ bun run preview
 
 By default, canonical URLs, OpenGraph images, `robots.txt`, and `sitemap-index.xml` resolve to `https://skylander.co.id`.
 
-If deploying to a different domain, set the `PUBLIC_SITE_URL` environment variable in your hosting provider (Vercel, Cloudflare Pages, Netlify, etc.):
+If deploying to a different domain, set the `PUBLIC_SITE_URL` environment variable in your `.env` or hosting provider:
 
 ```bash
 PUBLIC_SITE_URL=https://your-new-domain.com
+```
+
+---
+
+## Docker & CI/CD Deployment
+
+This repository includes a multi-stage `Dockerfile.web` (powered by `oven/bun:1-alpine`), `docker-compose.yml`, `docker-compose.prod.yml` (with Watchtower auto-updates), and a GitHub Actions workflow (`.github/workflows/docker.yml`) that automatically builds and publishes `ghcr.io/deus-meus/skylander-web:latest` on every push to `main`.
+
+### Local Docker Build & Run
+```bash
+docker compose up --build -d
+```
+
+### Production Deployment (GHCR + Watchtower)
+```bash
+cp .env.example .env
+docker compose -f docker-compose.prod.yml up -d
 ```
 
 ---
