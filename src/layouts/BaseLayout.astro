@@ -172,9 +172,9 @@ const schemas = extraJsonLd
 			<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
 		))}
 	</head>
-	<body class="bg-stone-50 font-body text-stone-700 antialiased min-h-screen flex flex-col selection:bg-amber-500/20 selection:text-amber-700">
+	<body class="bg-stone-50 font-body text-stone-700 antialiased min-h-screen flex flex-col overflow-x-hidden selection:bg-amber-500/20 selection:text-amber-700">
 		<Navbar transparentOnTop={canonicalPath === "/"} />
-		<main>
+		<main class="flex-1 w-full">
 			<slot />
 		</main>
 		<Footer />

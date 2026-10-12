@@ -38,9 +38,9 @@ import { company, createWhatsAppUrl } from "@/data/company";
 
 		<!-- Corporate Footer -->
 		<footer class="pt-12 sm:pt-16 pb-10 sm:pb-12 border-t border-stone-800/80">
-			<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12">
+			<div class="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-10 xl:gap-12">
 				<!-- Left Brand Column -->
-				<div class="lg:max-w-xs space-y-4 sm:space-y-5 shrink-0">
+				<div class="max-w-md xl:max-w-xs space-y-4 sm:space-y-5 shrink-0">
 					<a href="/" class="inline-block">
 						<img
 							src="/images/original/skylander.co_.id_.webp"
@@ -64,8 +64,8 @@ import { company, createWhatsAppUrl } from "@/data/company";
 					</div>
 				</div>
 
-				<!-- Right Columns: 2-col grid on mobile, flex-row on desktop -->
-				<div class="flex-1 grid grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row lg:items-start lg:justify-between gap-8 lg:pl-8">
+				<!-- Right Columns: 1-col mobile, 2-col md, 4-col lg, flex-row xl -->
+				<div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:flex xl:flex-row xl:items-start xl:justify-between gap-8 xl:pl-8">
 					<!-- Col 1: Layanan Konstruksi -->
 					<div class="space-y-3 sm:space-y-4">
 						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
@@ -83,7 +83,7 @@ import { company, createWhatsAppUrl } from "@/data/company";
 					</div>
 
 					<!-- Col 2: Perusahaan -->
-					<div class="space-y-3 sm:space-y-4 shrink-0">
+					<div class="space-y-3 sm:space-y-4 xl:shrink-0">
 						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
 							Perusahaan
 						</h4>
@@ -96,7 +96,7 @@ import { company, createWhatsAppUrl } from "@/data/company";
 					</div>
 
 					<!-- Col 3: Jaringan Kantor -->
-					<div class="space-y-3 sm:space-y-4 shrink-0">
+					<div class="space-y-3 sm:space-y-4 xl:max-w-[220px]">
 						<h4 class="font-heading text-xs font-bold uppercase tracking-widest text-amber-500">
 							Jaringan Kantor
 						</h4>
