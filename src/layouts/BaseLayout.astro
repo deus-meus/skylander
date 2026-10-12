@@ -151,6 +151,10 @@ const schemas = extraJsonLd
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageUrl} />
 
+		{canonicalPath === "/" && (
+			<link rel="preload" as="image" href="/images/stitch/stitch_02_4631cb0af0.webp" fetchpriority="high" />
+		)}
+
 		<!-- Google Fonts: Plus Jakarta Sans + Inter + JetBrains Mono + Material Symbols Outlined -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

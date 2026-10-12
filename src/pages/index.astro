@@ -6,11 +6,14 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 <BaseLayout>
 	<!-- 2. HERO SECTION (Full-Viewport with Transparent Top Navbar like Image #55) -->
 	<section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-stone-950">
-		<!-- Full-Bleed Background Image -->
-		<div
-			class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out scale-100"
-			style="background-image: url('/images/stitch/stitch_02_4631cb0af0.webp');"
-		></div>
+		<!-- Full-Bleed High-Priority Hero Image -->
+		<img
+			src="/images/stitch/stitch_02_4631cb0af0.webp"
+			alt="Konstruksi & Arsitektur Modern CV. Skylander"
+			fetchpriority="high"
+			decoding="async"
+			class="absolute inset-0 w-full h-full object-cover object-center"
+		/>
 		<!-- Subtle Ambient Gradient Overlay -->
 		<div class="absolute inset-0 bg-gradient-to-r from-stone-950/75 via-stone-950/25 to-transparent"></div>
 		<div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-stone-950/35"></div>
@@ -89,11 +92,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
 				<!-- 60% Width High-Resolution Execution Photo -->
 				<div class="lg:col-span-7 relative min-h-[460px] lg:min-h-[580px] rounded-lg overflow-hidden border border-stone-200 shadow-sm group">
-					<div
-						class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Tim insinyur CV. Skylander memeriksa struktur bangunan di lapangan"
-						style="background-image: url('/images/stitch/stitch_03_120eda0d0c.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_03_120eda0d0c.webp"
+						alt="Tim insinyur CV. Skylander memeriksa struktur bangunan di lapangan"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent"></div>
 					<div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-mono text-xs">
 						<div class="flex items-center justify-between w-full text-white/90 font-mono text-xs">
@@ -197,18 +202,20 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 				</p>
 			</div>
 
-			<!-- 3-Column Visual Grid (Aspect 4:3 Imagery with gradient text) -->
+			<!-- 3-Column Visual Grid (Aspect 4:3 Imagery with gradient text & Native Lazy Loading) -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				<!-- Service 1: Konstruksi Bangunan Hunian -->
 				<a
 					href="/service/konstruksi-bangunan-hunian"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Konstruksi Bangunan Hunian"
-						style="background-image: url('/images/stitch/stitch_04_aeb248ed94.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_04_aeb248ed94.webp"
+						alt="Konstruksi Bangunan Hunian"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -229,11 +236,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 					href="/service/konstruksi-gedung-perkantoran"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Konstruksi Gedung Perkantoran"
-						style="background-image: url('/images/stitch/stitch_05_9b5c3d9c92.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_05_9b5c3d9c92.webp"
+						alt="Konstruksi Gedung Perkantoran"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -254,11 +263,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 					href="/service/konstruksi-prasarana-sumber-daya-air"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Konstruksi Prasarana Sumber Daya Air"
-						style="background-image: url('/images/stitch/stitch_06_322bf1b092.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_06_322bf1b092.webp"
+						alt="Konstruksi Prasarana Sumber Daya Air"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -279,11 +290,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 					href="/service/jasa-renovasi"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Jasa Renovasi Bangunan"
-						style="background-image: url('/images/stitch/stitch_07_d2aed24740.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_07_d2aed24740.webp"
+						alt="Jasa Renovasi Bangunan"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -304,11 +317,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 					href="/service/jasa-lanskap"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Pekerjaan Landscape dan Taman"
-						style="background-image: url('/images/stitch/stitch_08_31fb316742.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_08_31fb316742.webp"
+						alt="Pekerjaan Landscape dan Taman"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -329,11 +344,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 					href="/service/konstruksi-bangunan-sipil"
 					class="group relative rounded-lg overflow-hidden border border-stone-200 aspect-[4/3] bg-stone-900 shadow-sm cursor-pointer block"
 				>
-					<div
-						class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-						data-alt="Konstruksi Bangunan Sipil"
-						style="background-image: url('/images/stitch/stitch_10_d983c13249.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_10_d983c13249.webp"
+						alt="Konstruksi Bangunan Sipil"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
 					<div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
 						<div class="space-y-1">
@@ -373,11 +390,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 				<!-- Sikap 1: Kesehatan & Keselamatan -->
 				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
-					<div
-						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-						data-alt="Kesehatan dan Keselamatan Kerja"
-						style="background-image: url('/images/stitch/stitch_07_d2aed24740.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_07_d2aed24740.webp"
+						alt="Kesehatan dan Keselamatan Kerja"
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
 					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
 						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 01</span>
@@ -390,11 +409,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 				<!-- Sikap 2: Inovasi & Pembaruan -->
 				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
-					<div
-						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-						data-alt="Inovasi dan Pembaruan"
-						style="background-image: url('/images/stitch/stitch_09_121b7fe264.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_09_121b7fe264.webp"
+						alt="Inovasi dan Pembaruan"
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
 					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
 						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 02</span>
@@ -407,11 +428,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 				<!-- Sikap 3: Perencanaan yang Matang -->
 				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
-					<div
-						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-						data-alt="Perencanaan yang Matang"
-						style="background-image: url('/images/stitch/stitch_11_86284da6ef.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_11_86284da6ef.webp"
+						alt="Perencanaan yang Matang"
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
 					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
 						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 03</span>
@@ -424,11 +447,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 				<!-- Sikap 4: Efisien & Kualitas -->
 				<div class="group relative rounded-lg overflow-hidden border border-stone-200 bg-stone-900 h-80 shadow-sm">
-					<div
-						class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-						data-alt="Efisien dan Kualitas"
-						style="background-image: url('/images/stitch/stitch_02_4631cb0af0.webp');"
-					></div>
+					<img
+						src="/images/stitch/stitch_02_4631cb0af0.webp"
+						alt="Efisien dan Kualitas"
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
 					<div class="absolute bottom-5 inset-x-5 space-y-1.5">
 						<span class="font-mono text-[10px] text-amber-400 uppercase tracking-widest block">Sikap Kerja 04</span>
