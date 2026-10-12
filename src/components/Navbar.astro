@@ -136,7 +136,7 @@ const { transparentOnTop = false } = Astro.props;
 			<!-- Language Toggle (Desktop) -->
 			<div
 				id="nav-lang-box"
-				class={`hidden sm:flex items-center font-mono text-xs rounded p-0.5 transition-all ${
+				class={`hidden lg:flex items-center font-mono text-xs rounded p-0.5 transition-all ${
 					transparentOnTop
 						? "border border-white/20 bg-white/10 backdrop-blur-md"
 						: "border border-stone-200 bg-white/60 shadow-inner"
@@ -165,7 +165,7 @@ const { transparentOnTop = false } = Astro.props;
 			<!-- CTA Button (hidden on very small screens, visible sm+) -->
 			<a
 				id="nav-cta-btn"
-				class={`hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2.5 font-heading text-xs uppercase tracking-wider font-bold rounded transition-all duration-200 shadow-sm ${
+				class={`hidden lg:inline-flex items-center justify-center gap-1.5 px-4 py-2.5 font-heading text-xs uppercase tracking-wider font-bold rounded transition-all duration-200 shadow-sm ${
 					transparentOnTop
 						? "bg-amber-500 hover:bg-amber-400 text-stone-950"
 						: "bg-stone-900 hover:bg-amber-500 text-white hover:text-stone-950"
